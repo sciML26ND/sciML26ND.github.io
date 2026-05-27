@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SciML Workshop – Notre Dame 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    html { overflow-y: scroll; scrollbar-gutter: stable; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; color: #202124; background: #fff; line-height: 1.6; padding-top: 64px; }
+    a { color: #1a73e8; }
+    a:hover { color: #0d47a1; }
+    nav { position: fixed; top: 0; left: 0; right: 0; height: 64px; z-index: 100; background: #fff; border-bottom: 1px solid #e0e0e0; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+    .nav-inner { max-width: 1200px; height: 100%; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: inline-flex; align-items: center; height: 40px; font-size: 1.1rem; font-weight: 500; color: #1a73e8; text-decoration: none; white-space: nowrap; line-height: 1; }
+    .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; white-space: nowrap; }
+    .nav-links a { display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 4px; font-size: .95rem; font-weight: 500; color: #444; text-decoration: none; line-height: 1; }
+    .nav-links a:hover, .nav-links a.active { background: #e8f0fe; color: #1a73e8; }
+    .hero { background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%); color: #fff; text-align: center; padding: 52px 24px 44px; }
+    .hero h1 { font-family: 'Google Sans', 'Roboto', sans-serif; font-weight: 700; max-width: 800px; margin: 0 auto 12px; line-height: 1.25; font-size: clamp(1.4rem, 3vw, 2rem); }
+    .hero .event-meta { font-size: 1.05rem; opacity: .9; }
+    .hero.hero-lg { padding: 72px 24px 64px; }
+    .hero.hero-lg h1 { font-size: clamp(1.6rem, 4vw, 2.6rem); margin-bottom: 20px; }
+    .hero.hero-lg .event-meta { font-size: 1.15rem; }
+    .page { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 52px 0 40px; border-bottom: 1px solid #eee; }
+    section:last-of-type { border-bottom: none; }
+    h2 { font-family: 'Google Sans', 'Roboto', sans-serif; font-size: 1.5rem; font-weight: 500; color: #1a73e8; margin-bottom: 20px; }
+    h3 { font-size: 1.05rem; font-weight: 500; margin: 24px 0 10px; }
+    p { margin-bottom: 14px; }
+    ul { padding-left: 22px; margin-bottom: 14px; }
+    ul li { margin-bottom: 6px; }
+    .info-box { background: #f8f9fa; border-radius: 12px; padding: 28px 32px; line-height: 1.7; }
+    .info-box a { font-weight: 500; text-decoration: underline; }
+    .speaker-grid, .nd-speakers, .travel-grid { display: grid; gap: 12px; margin-top: 8px; }
+    .speaker-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+    .nd-speakers  { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+    .travel-grid  { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+    .speaker-card { background: #f8f9fa; border-radius: 8px; padding: 14px 18px; border-left: 4px solid #1a73e8; }
+    .speaker-card .name { font-weight: 500; }
+    .speaker-card .affil { font-size: .88rem; color: #5f6368; }
+    .nd-card { background: #e8f0fe; border-radius: 8px; padding: 10px 16px; font-size: .93rem; }
+    .nd-card .dept { font-size: .82rem; color: #1a73e8; font-weight: 500; }
+    .support-list { list-style: none; padding: 0; }
+    .support-list li { padding: 10px 0 10px 28px; border-bottom: 1px solid #f1f3f4; position: relative; }
+    .support-list li::before { content: '✦'; position: absolute; left: 0; top: 13px; color: #1a73e8; font-size: .75rem; }
+    .travel-card { background: #f8f9fa; border-radius: 10px; padding: 20px 22px; border-top: 4px solid #1a73e8; }
+    .travel-card .tc-icon { font-size: 1.6rem; display: block; margin-bottom: 10px; }
+    .travel-card .tc-title { font-family: 'Google Sans', 'Roboto', sans-serif; font-weight: 500; margin-bottom: 8px; }
+    .travel-card p { font-size: .9rem; color: #3c4043; margin-bottom: 6px; }
+    .travel-card p:last-child { margin-bottom: 0; }
+    .travel-card a { font-size: .9rem; }
+    .map-wrap { margin-top: 24px; border-radius: 12px; overflow: hidden; border: 1px solid #e0e0e0; }
+    .map-wrap iframe { display: block; width: 100%; height: 340px; border: none; }
+    .placeholder { color: #5f6368; }
+    footer { background: #f8f9fa; border-top: 1px solid #e0e0e0; text-align: center; padding: 28px 24px; font-size: .85rem; color: #5f6368; margin-top: 24px; }
+    @media (max-width: 600px) {
+      .nav-inner { padding: 0 16px; }
+      .nav-logo { font-size: .95rem; }
+      .speaker-grid, .nd-speakers, .travel-grid { grid-template-columns: 1fr; }
+      .info-box { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">SciML @ Notre Dame 2026</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="information.html">Information</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="hero hero-lg">
+  <h1>Scientific Machine Learning: Theory, Algorithms, Applications, and Agentic AI Workflows</h1>
+  <p class="event-meta">September 26 – 27, 2026 &nbsp;·&nbsp; University of Notre Dame</p>
+</div>
+
+<div class="page">
+
+  <section>
+    <h2>Workshop Scope</h2>
+    <p>Recent developments in artificial intelligence and advanced machine learning tools are introducing new insights and approaches for advancing research across a wide variety of disciplines.</p>
+    <p>New mathematical theories and practically applicable strategies are urgently needed. These call for a deeper understanding of machine learning methods, in order to model crucial yet poorly represented processes and to improve our ability to understand and predict both natural and artificial phenomena.</p>
+    <p>Significant progress has been made on these questions from several perspectives, including rigorous mathematical theory, quantitative and qualitative modeling, and novel multiscale asymptotic and computational strategies.</p>
+    <p>This workshop brings together researchers and practitioners from diverse backgrounds to exchange ideas and share recent advances in the theoretical, computational, and applied aspects of scientific machine learning. Recent developments in digital twin technology, agentic AI workflows, and their combination are also of strong interest.</p>
+  </section>
+
+  <section>
+    <h2>Organizers</h2>
+    <ul>
+      <li><strong>Zecheng Zhang, Daniele Schiavazzi, Zhiliang Xu</strong> — University of Notre Dame</li>
+      <li><strong>Guang Lin and Di Qi</strong> — Purdue University</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Speakers</h2>
+    <p class="placeholder">The detailed schedule will be posted closer to the workshop date.</p>
+
+<!--     <h3>External Speakers</h3>
+    <div class="speaker-grid">
+      <div class="speaker-card"><div class="name">Yifan Chen</div><div class="affil">University of California, Los Angeles</div></div>
+      <div class="speaker-card"><div class="name">Wenrui Hao</div><div class="affil">The Pennsylvania State University</div></div>
+      <div class="speaker-card"><div class="name">Alexander Scheinker</div><div class="affil">Los Alamos National Laboratory</div></div>
+      <div class="speaker-card"><div class="name">Wenjing Liao</div><div class="affil">Georgia Institute of Technology</div></div>
+      <div class="speaker-card"><div class="name">Jian-Guo Liu</div><div class="affil">Duke University</div></div>
+      <div class="speaker-card"><div class="name">Yiping Lu</div><div class="affil">Northwestern University</div></div>
+      <div class="speaker-card"><div class="name">Sorin Mitran</div><div class="affil">University of North Carolina at Chapel Hill</div></div>
+      <div class="speaker-card"><div class="name">Houman Owhadi</div><div class="affil">California Institute of Technology</div></div>
+      <div class="speaker-card"><div class="name">Michael Scott Penwarden</div><div class="affil">Sandia National Laboratories</div></div>
+      <div class="speaker-card"><div class="name">Ravi Ghanshyam Patel</div><div class="affil">Sandia National Laboratories</div></div>
+      <div class="speaker-card"><div class="name">Panos Stinis</div><div class="affil">Pacific Northwest National Laboratory</div></div>
+      <div class="speaker-card"><div class="name">Daniel Tartakovsky</div><div class="affil">Stanford University</div></div>
+      <div class="speaker-card"><div class="name">Nick Winovich</div><div class="affil">Sandia National Laboratories</div></div>
+      <div class="speaker-card"><div class="name">Dongbin Xiu</div><div class="affil">The Ohio State University</div></div>
+    </div>
+
+    <h3>From the University of Notre Dame</h3>
+    <div class="nd-speakers">
+      <div class="nd-card"><div class="dept">CBE</div>Brett Savoie, Yamil Colon</div>
+      <div class="nd-card"><div class="dept">CSE</div>Diego Gomez-Zara, Meng Jiang, Lynn Zhang</div>
+      <div class="nd-card"><div class="dept">AME</div>Jonathan MacArt, Matthew Zahr, Shivam Barwey</div>
+      <div class="nd-card"><div class="dept">CEE</div>Patrick Brewick</div>
+      <div class="nd-card"><div class="dept">CRC</div>Charles Vardeman, Paul Brenner</div>
+      <div class="nd-card"><div class="dept">ACMS</div>Zecheng Zhang, Daniele Schiavazzi, Zhiliang Xu</div>
+    </div>
+  </section>
+ -->
+  <section>
+    <h2>Support</h2>
+    <p>This workshop is supported by:</p>
+    <ul class="support-list">
+      <li>Department of Applied and Computational Mathematics and Statistics</li>
+      <li>The College of Science</li>
+      <li>Notre Dame Research</li>
+      <li>The Scientific AI Center (SAI) at the University of Notre Dame</li>
+      <li>The Data, AI and Computing (DAC) Initiative at the University of Notre Dame</li>
+    </ul>
+  </section>
+
+</div>
+
+<footer>&copy; 2026 SciML Workshop at the University of Notre Dame</footer>
+
+</body>
+</html>
