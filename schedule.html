@@ -6,7 +6,7 @@
   <title>Schedule – SciML Workshop Notre Dame 2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    html { overflow-y: scroll; scrollbar-gutter: stable; }
+    html { overflow-y: scroll; scrollbar-gutter: stable; scroll-behavior: smooth; }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; color: #202124; background: #fff; line-height: 1.6; padding-top: 64px; }
     a { color: #1a73e8; }
@@ -21,17 +21,81 @@
     .hero { background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%); color: #fff; text-align: center; padding: 52px 24px 44px; }
     .hero h1 { font-family: 'Google Sans', 'Roboto', sans-serif; font-weight: 700; max-width: 800px; margin: 0 auto 12px; line-height: 1.25; font-size: clamp(1.4rem, 3vw, 2rem); }
     .hero .event-meta { font-size: 1.05rem; opacity: .9; }
-    .page { max-width: 900px; margin: 0 auto; padding: 0 24px; }
-    section { padding: 52px 0 40px; }
+    .page { max-width: 1050px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 44px 0 32px; }
     h2 { font-family: 'Google Sans', 'Roboto', sans-serif; font-size: 1.5rem; font-weight: 500; color: #1a73e8; margin-bottom: 20px; }
     p { margin-bottom: 14px; }
-    .placeholder { color: #5f6368; }
     footer { background: #f8f9fa; border-top: 1px solid #e0e0e0; text-align: center; padding: 28px 24px; font-size: .85rem; color: #5f6368; margin-top: 24px; }
+
+    .tentative-note { background: #fef7e0; border: 1px solid #f9e9b8; border-radius: 8px; padding: 14px 18px; font-size: .92rem; color: #5f4b00; margin: 26px 0 0; }
+    .jump-links { margin-top: 14px; font-size: .95rem; }
+    .jump-links a { margin-right: 16px; font-weight: 500; }
+
+    /* ---- At-a-glance tables ---- */
+    .glance-wrap { overflow-x: auto; }
+    table.glance { width: 100%; border-collapse: collapse; font-size: .89rem; margin-bottom: 30px; min-width: 680px; }
+    table.glance caption { text-align: left; font-family: 'Google Sans', 'Roboto', sans-serif; font-size: 1.1rem; font-weight: 500; color: #202124; padding: 8px 0 10px; }
+    table.glance th, table.glance td { border: 1px solid #e0e0e0; padding: 9px 13px; vertical-align: top; text-align: left; width: 42%; }
+    table.glance thead th { background: #1a73e8; color: #fff; font-weight: 500; }
+    table.glance .time, table.glance th.time { white-space: nowrap; width: 16%; color: #5f6368; font-size: .84rem; }
+    table.glance thead th.time { color: #fff; }
+    table.glance tr.break td { background: #f8f9fa; color: #5f6368; }
+    table.glance tr.special td { background: #e8f0fe; }
+    table.glance tr.plenary td { background: #d7e6fc; }
+    table.glance .sess { font-weight: 500; }
+    table.glance .who { display: block; font-size: .83rem; color: #5f6368; }
+    table.glance .code { display: inline-block; background: #1a73e8; color: #fff; font-size: .72rem; font-weight: 500; border-radius: 4px; padding: 0 6px; margin-right: 6px; vertical-align: 1px; }
+    table.glance tr.plenary .code { background: #0d47a1; }
+
+    /* ---- Detailed program ---- */
+    .day-header { font-family: 'Google Sans', 'Roboto', sans-serif; font-size: 1.35rem; font-weight: 500; color: #fff; background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%); border-radius: 10px; padding: 14px 22px; margin: 34px 0 22px; }
+    .session-block { margin-bottom: 30px; }
+    .session-title { font-family: 'Google Sans', 'Roboto', sans-serif; font-size: 1.05rem; font-weight: 500; color: #0d47a1; background: #e8f0fe; border-radius: 8px; padding: 10px 16px; margin-bottom: 12px; }
+    .session-title.plenary { background: #d7e6fc; }
+    .session-title .stime { color: #1a73e8; font-size: .86rem; font-weight: 400; display: block; }
+    .talk { background: #f8f9fa; border-left: 4px solid #1a73e8; border-radius: 8px; padding: 14px 18px; margin-bottom: 12px; }
+    .talk .ttime { font-size: .82rem; color: #5f6368; }
+    .talk .tspeaker { font-weight: 500; }
+    .talk .taffil { color: #5f6368; font-weight: 400; }
+    .talk .ttitle { font-style: italic; margin: 2px 0 4px; }
+    .talk details { margin-top: 6px; }
+    .talk summary { cursor: pointer; color: #1a73e8; font-size: .88rem; font-weight: 500; }
+    .talk details p { font-size: .9rem; color: #3c4043; margin: 8px 0 0; }
+    .talk.tba { border-left-color: #9aa0a6; }
+    .talk.tba .ttitle { color: #5f6368; }
+    .event-card { background: #e8f0fe; border-radius: 8px; padding: 12px 18px; margin-bottom: 12px; font-size: .95rem; }
+    .event-card .ttime { font-size: .82rem; color: #1a73e8; display: block; }
+    .event-card .ename { font-weight: 500; }
+    .break-card { background: #f8f9fa; border-radius: 8px; padding: 9px 18px; margin-bottom: 12px; font-size: .88rem; color: #5f6368; }
+    .open-slot { background: #fff; border: 1px dashed #9aa0a6; border-radius: 8px; padding: 12px 18px; margin-bottom: 12px; font-size: .88rem; color: #5f6368; }
+    .parallel { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    @media (max-width: 780px) { .parallel { grid-template-columns: 1fr; } }
+
     @media (max-width: 600px) {
       .nav-inner { padding: 0 16px; }
       .nav-logo { font-size: .95rem; }
     }
-  </style>
+  
+    .loc { display: inline-block; background: #e8f0fe; color: #0d47a1; font-size: .78rem; font-weight: 500; border-radius: 4px; padding: 0 8px; margin-left: 8px; vertical-align: 1px; white-space: nowrap; }
+    table.glance .talkline { display: block; font-size: .84rem; color: #3c4043; margin-top: 3px; }
+    table.glance .talkline .tl-time { color: #5f6368; font-size: .78rem; }
+    table.glance .talkline i { color: #5f6368; }
+
+    .lt-list { list-style: none; padding: 0; margin: 0; }
+    .lt-list li { background: #f8f9fa; border-left: 4px solid #34a853; border-radius: 8px; padding: 11px 16px; margin-bottom: 9px; }
+    .lt-list .lt-time { font-size: .8rem; color: #5f6368; }
+    .lt-list .lt-name { font-weight: 500; }
+    .lt-list .lt-affil { color: #5f6368; font-weight: 400; }
+    .lt-list .lt-title { font-style: italic; font-size: .9rem; color: #3c4043; }
+    .session-title.lightning { background: #e6f4ea; color: #137333; }
+    .session-title.lightning .stime { color: #34a853; }
+    .panel-card { background: #fef7e0; border-left: 4px solid #f9ab00; border-radius: 8px; padding: 14px 18px; margin-bottom: 12px; }
+    .panel-card .ename { font-weight: 500; }
+    .panel-card .ttime { font-size: .82rem; color: #5f6368; }
+    .panel-card p { font-size: .9rem; color: #3c4043; margin: 6px 0 0; }
+    table.glance tr.panel td { background: #fef7e0; }
+    table.glance tr.trans td { background: #fff; color: #5f6368; font-style: italic; }
+</style>
 </head>
 <body>
 
@@ -41,21 +105,556 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="schedule.html" class="active">Schedule</a></li>
-      <li><a href="information.html">Info & Registration</a></li>
+      <li><a href="information.html">Info &amp; Registration</a></li>
     </ul>
   </div>
 </nav>
 
 <div class="hero">
-  <h1>Workshop Schedule</h1>
+  <h1>Tentative Workshop Schedule</h1>
   <p class="event-meta">September 26 – 27, 2026 &nbsp;·&nbsp; University of Notre Dame</p>
 </div>
 
 <div class="page">
-  <section>
-    <h2>Schedule</h2>
-    <p class="placeholder">The detailed schedule will be posted closer to the workshop date.</p>
+
+  <section id="overview">
+    <h2>Schedule at a Glance</h2>
+    <p>All invited talks run in <strong>two parallel tracks</strong> — <strong>Session A in 105 Jordan</strong> and
+    <strong>Session B in 106 Jordan</strong> — across <strong>18 parallel slots</strong> of 30 minutes each.
+    Parallel sessions are deliberately paired so that the two concurrent topics are clearly distinct.
+    The opening remarks, lightning talks and poster session are held jointly, and a
+    5-minute transition follows the opening remarks so attendees can reach their session room.
+    Click any session to jump to the detailed program with abstracts.</p>
+
+    <div class="tentative-note">
+      ⚠ This schedule is <strong>tentative</strong> and subject to change. Talk order and track assignments will be
+      finalized closer to the workshop.
+    </div>
+    <p class="jump-links">
+      Jump to: <a href="#day1">Day 1 – Saturday, Sept 26</a> <a href="#day2">Day 2 – Sunday, Sept 27</a>
+    </p>
+
+    <div class="glance-wrap">
+    <table class="glance">
+      <caption>Saturday, September 26, 2026</caption>
+      <thead>
+        <tr><th class="time">Time</th><th>Session A — 105 Jordan</th><th>Session B — 106 Jordan</th></tr>
+      </thead>
+      <tbody>
+        <tr class="special"><td class="time">8:50 – 9:00 am</td><td colspan="2"><span class="sess">Opening Remarks</span> <span class="who">📍 105 Jordan</span></td></tr>
+        <tr class="trans"><td class="time">9:00 – 9:05 am</td><td colspan="2">Move to session rooms</td></tr>
+        <tr>
+          <td class="time">9:05 – 10:35 am</td>
+          <td><a class="sess" href="#s1a"><span class="code">1A</span>Data-Driven Modeling &amp; Digital Twins</a><span class="talkline"><span class="tl-time">9:05</span> <b>Houman Owhadi</b> — <i>Graphical conditional generative modeling for digital twin modeling</i></span><span class="talkline"><span class="tl-time">9:35</span> <b>Dongbin Xiu</b> — <i>Modeling Observable Dynamics: Flow Map Learning, Delay Representation and Digital Twins</i></span><span class="talkline"><span class="tl-time">10:05</span> <b>Tan Bui</b> — <i>Real-time SciML-based forecast, calibration, and optimal control algorithms for Digital Twins</i></span></td>
+          <td><a class="sess" href="#s1b"><span class="code">1B</span>Sparse Data, Streaming &amp; Probabilistic Learning</a><span class="talkline"><span class="tl-time">9:05</span> <b>Daniel Tartakovsky</b> — <i>Learning from Sparse Data</i></span><span class="talkline"><span class="tl-time">9:35</span> <b>Alireza Doostan</b> — <i>Randomized Sketching for Streaming Data Analytics</i></span><span class="talkline"><span class="tl-time">10:05</span> <b>Siting Liu</b> — <i>From ICON to GenICON: Probabilistic Operator Learning with Uncertainty Quantification</i></span></td>
+        </tr>
+        <tr class="break"><td class="time">10:35 – 11:00 am</td><td colspan="2">Coffee Break</td></tr>
+        <tr>
+          <td class="time">11:00 am – 12:00 pm</td>
+          <td><a class="sess" href="#s2a"><span class="code">2A</span>AI Agents for Scientific Discovery</a><span class="talkline"><span class="tl-time">11:00</span> <b>Francisco Villaescusa</b> — <i>The Denario project</i></span><span class="talkline"><span class="tl-time">11:30</span> <b>Qile Jiang</b> — <i>Building and analyzing collaborative multi-agents for emergent discovery in scientific machine learning</i></span></td>
+          <td><a class="sess" href="#s2b"><span class="code">2B</span>Geometry, Sampling &amp; High-Dimensional Inference</a><span class="talkline"><span class="tl-time">11:00</span> <b>Yifan Chen</b> — <i>Accelerating Sampling and Generative Diffusions for High-Dimensional Scientific Inference</i></span><span class="talkline"><span class="tl-time">11:30</span> <b>Anna Little</b> — <i>A Geometric Framework for Dimension Reduction and Clustering via Path Metrics</i></span></td>
+        </tr>
+        <tr class="break"><td class="time">12:00 – 1:00 pm</td><td colspan="2">Lunch Break</td></tr>
+        <tr>
+          <td class="time">1:00 – 2:30 pm</td>
+          <td><a class="sess" href="#s3a"><span class="code">3A</span>Agentic AI &amp; Foundation Models for Science &amp; Engineering</a><span class="talkline"><span class="tl-time">1:00</span> <b>Shivam Barwey</b> — <i>A verifiable automation approach for the analysis of high-fidelity fluid dynamics simulations</i></span><span class="talkline"><span class="tl-time">1:30</span> <b>Marta D'Elia</b> — <i>Minimizing the Thought-to-Thing time in engineering workflows</i></span><span class="talkline"><span class="tl-time">2:00</span> <b>Paul Brenner &amp; Charles Vardeman</b> — <i>Human and AI Teaming for Discovery - Shared Memory</i></span></td>
+          <td><a class="sess" href="#s3b"><span class="code">3B</span>Mathematical Foundations of Machine Learning</a><span class="talkline"><span class="tl-time">1:00</span> <b>Wenjing Liao</b> — <i>Understanding Neural Scaling Laws of Transformers for In-Context Learning</i></span><span class="talkline"><span class="tl-time">1:30</span> <b>Guowei Wei</b> — <i>Mathematical AI for Biosciences</i></span><span class="talkline"><span class="tl-time">2:00</span> <b>Rahul Parhi</b> — <i>What Kinds of Functions Do Neural Networks Learn? Low-Norm vs. Flat Solutions</i></span></td>
+        </tr>
+        <tr class="break"><td class="time">2:30 – 3:00 pm</td><td colspan="2">Coffee Break</td></tr>
+        <tr>
+          <td class="time">3:00 – 3:30 pm</td>
+          <td><a class="sess" href="#s3a-cont"><span class="code">3A</span>Agentic AI &amp; Foundation Models for Science &amp; Engineering (continued)</a><span class="talkline"><span class="tl-time">3:00</span> <b>Meng Jiang</b> — <i>Advances in Molecular Graph Foundation Models</i></span></td>
+          <td><a class="sess" href="#s3b-cont"><span class="code">3B</span>Mathematical Foundations of Machine Learning (continued)</a><span class="talkline"><span class="tl-time">3:00</span> <b>Elizabeth Newman</b> — <i>Boost Like a (Var)Pro: Trust-Region Gradient Boosting via Variable Projection</i></span></td>
+        </tr>
+        <tr>
+          <td class="time">3:30 – 4:30 pm</td>
+          <td><a class="sess" href="#s4a"><span class="code">4A</span>PDE–ML Coupling &amp; Operator Learning for Engineering</a><span class="talkline"><span class="tl-time">3:30</span> <b>Panos Stinis</b> — <i>Stabilizing PDE-ML systems with applications to fluid dynamics</i></span><span class="talkline"><span class="tl-time">4:00</span> <b>Nick Winovich</b> — <i>Operator Learning for Non-Destructive Testing of Mechanical Components</i></span></td>
+          <td><a class="sess" href="#s4b"><span class="code">4B</span>Reliable Prediction &amp; Uncertainty Quantification</a><span class="talkline"><span class="tl-time">3:30</span> <b>Wenrui Hao</b> — <i>Toward Reliable Scientific Machine Learning: Identifiability and Neural Operator Learning</i></span><span class="talkline"><span class="tl-time">4:00</span> <b>Alexander Scheinker</b> — <i>Self-Supervised Test-Time Method for Autoregressive Generative Models to Predict their own Roll-out Errors</i></span></td>
+        </tr>
+        <tr class="special"><td class="time">4:30 – 5:40 pm</td><td colspan="2"><a class="sess" href="#lt1">Lightning Talks I</a> — 7 talks × 10 min <span class="who">📍 105 Jordan</span></td></tr>
+        <tr class="special"><td class="time">6:00 – 7:30 pm</td><td colspan="2"><span class="sess">Poster Session</span> <span class="who">📍 Jordan Hall</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="glance-wrap">
+    <table class="glance">
+      <caption>Sunday, September 27, 2026</caption>
+      <thead>
+        <tr><th class="time">Time</th><th>Session A — 105 Jordan</th><th>Session B — 106 Jordan</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="time">9:00 – 10:30 am</td>
+          <td><a class="sess" href="#s5a"><span class="code">5A</span>Learning-Enhanced Numerical Methods for PDEs</a><span class="talkline"><span class="tl-time">9:00</span> <b>Matthew Zahr</b> — <i>Optimization-Based Simulation of High-Speed Flows</i></span><span class="talkline"><span class="tl-time">9:30</span> <b>Li Wang</b> — <i>Learning-enhanced structure preserving methods for kinetic plasma models</i></span><span class="talkline"><span class="tl-time">10:00</span> <b>Yingjie Liu</b> — <i>Neural Networks with Local Converging Inputs (NNLCI) for Predicting Smooth and Non-smooth PDE Solutions with Minimal Training Data, Strong Generalization, and Drastically Reduced Complexity</i></span></td>
+          <td><a class="sess" href="#s5b"><span class="code">5B</span>Stochastic Modeling, Transport &amp; Uncertainty Quantification</a><span class="talkline"><span class="tl-time">9:00</span> <b>Erhan Bayraktar</b> — <i>Analytical Approach to Continuous-Time Causal Optimal Transport</i></span><span class="talkline"><span class="tl-time">9:30</span> <b>Gianluca Geraci</b> — <i>Multi-fidelity triangular transport formulations</i></span><span class="talkline"><span class="tl-time">10:00</span> <b>Xiaofan Li</b> — <i>Structure-Aware Variational Learning of a Class of Generalized Diffusions</i></span></td>
+        </tr>
+        <tr class="break"><td class="time">10:30 – 11:00 am</td><td colspan="2">Coffee Break</td></tr>
+        <tr>
+          <td class="time">11:00 am – 12:00 pm</td>
+          <td><a class="sess" href="#s6a"><span class="code">6A</span>Operator Learning: Architectures &amp; In-Context Methods</a><span class="talkline"><span class="tl-time">11:00</span> <b>Yue Yu</b> — <i>Smoother or rougher: how to generate data to learn nonlocal operators?</i></span><span class="talkline"><span class="tl-time">11:30</span> <b>Guang Lin</b> — <i>LegONet: Plug-and-Play Structure-Preserving Neural Operator Blocks for Compositional PDE Learning</i></span></td>
+          <td><a class="sess" href="#s6b"><span class="code">6B</span>Surrogate Models, Reduced-Order Methods &amp; Efficient Algorithms</a><span class="talkline"><span class="tl-time">11:00</span> <b>Ibrahim Ekren</b> — <i>Consensus-based algorithms for min–max problems: uniform-in-time propagation of chaos</i></span><span class="talkline"><span class="tl-time">11:30</span> <b>Patrick Brewick</b> — <i>Toward Data-Efficient Scientific Machine Learning for Nonlinear Dynamics: Active Solution Operators and Bi-Fidelity Generative Models</i></span></td>
+        </tr>
+        <tr class="break"><td class="time">12:00 – 1:00 pm</td><td colspan="2">Lunch Break</td></tr>
+        <tr>
+          <td class="time">1:00 – 2:00 pm</td>
+          <td><a class="sess" href="#s6a-cont"><span class="code">6A</span>Operator Learning: Architectures &amp; In-Context Methods (continued)</a><span class="talkline"><span class="tl-time">1:00</span> <b>Jonathan Siegel</b> — <i>Operator-to-operator learning using DeepOSets and FNOSets</i></span><span class="talkline"><span class="tl-time">1:30</span> <b>Rongjie Lai</b> — <i>Self-supervised In-context Operator Learning on Probability Measure Space: Theory and Applications</i></span></td>
+          <td><a class="sess" href="#s6b-cont"><span class="code">6B</span>Surrogate Models, Reduced-Order Methods &amp; Efficient Algorithms (continued)</a><span class="talkline"><span class="tl-time">1:00</span> <b>Alexandros Taflanidis</b> — <i>Leveraging scientific machine learning techniques to support planning and emergency response management for storm surge risk</i></span><span class="talkline"><span class="tl-time">1:30</span> <b>Qi Di</b> — <i>Reduced-order models and data assimilation for prediction and uncertainty quantification of multiscale turbulent systems</i></span></td>
+        </tr>
+        <tr class="special"><td class="time">2:00 – 2:50 pm</td><td colspan="2"><a class="sess" href="#lt2">Lightning Talks II</a> — 5 talks × 10 min <span class="who">📍 105 Jordan</span></td></tr>
+        <tr class="break"><td class="time">3:00 pm</td><td colspan="2">Departure</td></tr>
+      </tbody>
+    </table>
+    </div>
   </section>
+
+  <section id="detailed">
+    <h2>Detailed Program &amp; Abstracts</h2>
+
+    <div class="day-header" id="day1">Day 1 — Saturday, September 26, 2026</div>
+
+    <div class="event-card"><span class="ttime">8:50 – 9:00 am</span><span class="ename">Opening Remarks</span> — Organizing Committee<span class="loc">📍 105 Jordan</span></div>
+
+    <div class="break-card">9:00 – 9:05 am · Transition — Move to session rooms</div>
+
+    <div class="parallel">
+      <div class="session-block" id="s1a">
+        <div class="session-title"><span class="stime">9:05 – 10:35 am · Session A</span>1A: Data-Driven Modeling &amp; Digital Twins<span class="loc">📍 105 Jordan</span></div>
+
+        <div class="talk">
+          <div class="ttime">9:05 – 9:35 am</div>
+          <div class="tspeaker">Houman Owhadi <span class="taffil">· California Institute of Technology</span></div>
+          <div class="ttitle">Graphical conditional generative modeling for digital twin modeling</div>
+          <details><summary>Abstract</summary>
+            <p>Digital twin modeling, including control and data assimilation under model uncertainty, often faces an open-ended fidelity problem: adding variables, data streams, and time scales can indefinitely increase model complexity, ultimately producing systems that are difficult to maintain, validate, interpret, and use for stress or safety testing. As an alternative, one can seek parsimonious stochastic surrogate models built only on the variables needed to describe the relevant quantities of interest. We introduce a framework for discovering such variables from observational data by identifying which candidate inputs influence the full conditional law of a target quantity, rather than only its conditional mean. This distinction is essential in stochastic, coarse-grained, or partially observed systems, where dependencies may appear through changes in variability, tail behavior, multimodality, or uncertainty rather than through deterministic functional relationships. The framework couples conditional generative modeling, which learns the conditional distribution of the target given candidate inputs, with Gaussian-process-based analysis of variance (through kernel mode decomposition), which enables iterative pruning of non-influential inputs and interpretable structure discovery. In control settings, the resulting surrogate can be interpreted as a learned Markov decision process: the method identifies not only a transition model, but also the state, action, and memory variables needed to make the learned dynamics effectively Markovian. Across examples involving stochastic dynamical systems, missing variables, PDE control, reinforcement learning, and financial data, the discovered structures yield interpretable stochastic surrogates whose downstream performance is comparable to models trained on the full variable set. This talk is based on joint work with Zongren Zou, Theo Bourdais and Ricardo Baptista.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">9:35 – 10:05 am</div>
+          <div class="tspeaker">Dongbin Xiu <span class="taffil">· Ohio State University</span></div>
+          <div class="ttitle">Modeling Observable Dynamics: Flow Map Learning, Delay Representation and Digital Twins</div>
+          <details><summary>Abstract</summary>
+            <p>We present a mathematical and numerical framework for modeling dynamics of observables in complex systems, termed Flow Map Learning (FML). The method constructs discrete-time evolution operators directly from data, enabling accurate prediction of the observables dynamics without the need to solve the underlying governing equations. We establish that, for a broad class of systems, observable dynamics admit finite-dimensional delay representations, leading to closed evolution equations with minimal memory. This perspective provides a foundation for incorporating temporal dependence in data-driven models and fast predictions of observable dynamics, particularly for Digital Twin applications where real-time prediction and control are critical. We then present various numerical examples to demonstrate the efficacy of FML for long-time prediction of observable dynamics.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">10:05 – 10:35 am</div>
+          <div class="tspeaker">Tan Bui <span class="taffil">· Oden Institute and University of Texas, Austin</span></div>
+          <div class="ttitle">Real-time SciML-based forecast, calibration, and optimal control algorithms for Digital Twins</div>
+          <details><summary>Abstract</summary>
+            <p>Digital twins (DTs) are high-fidelity virtual representations of physical systems and processes. At their foundation lie mathematical and physical models that describe system behavior across multiple spatial and temporal scales. A central purpose of DTs is to enable “what-if” analyses through hypothetical simulations, supporting lifecycle monitoring, parameter calibration against observational data, and systematic uncertainty quantification (UQ). For DTs to serve as a reliable basis for real-time forecasting, optimization, and decision-making, they must reconcile two traditionally competing requirements: mathematical rigor and physical fidelity, and computational efficiency at scale. This has motivated a new generation of approaches that combine classical tools from numerical analysis, partial differential equations, inverse problems, and optimization with the expressive power of Scientific Machine Learning (SciML). In this talk, I will outline a principled pathway from traditional computational mathematics to rigorously grounded SciML. I will then present recent Scientific Deep Learning (SciDL) methods for forward modeling, inverse and calibration problems, and uncertainty quantification, emphasizing mathematical structure, stability, and generalization. Both theoretical results and numerical demonstrations will be shown for representative problems governed by transport, heat, Burgers, Euler (including transonic and hypersonic regimes), and Navier–Stokes equations.</p>
+          </details>
+        </div>
+      </div>
+      <div class="session-block" id="s1b">
+        <div class="session-title"><span class="stime">9:05 – 10:35 am · Session B</span>1B: Sparse Data, Streaming &amp; Probabilistic Learning<span class="loc">📍 106 Jordan</span></div>
+
+        <div class="talk">
+          <div class="ttime">9:05 – 9:35 am</div>
+          <div class="tspeaker">Daniel Tartakovsky <span class="taffil">· Stanford University</span></div>
+          <div class="ttitle">Learning from Sparse Data</div>
+          <details><summary>Abstract</summary>
+            <p>The development of efficient surrogates of partial differential equations (PDEs) is a critical step toward scalable modeling of complex, multiscale systems-of-systems. Convolutional neural networks (CNNs) have gained popularity as the basis for such surrogate models due to their success in capturing high-dimensional input–output mappings and the negligible cost of a forward pass. However, the high cost of generating training data—typically via classical numerical solvers—raises the question of whether these models are worth pursuing over more straightforward alternatives with well-established theoretical foundations such as Monte Carlo (MC) methods. To reduce the cost of data generation, we propose training a CNN surrogate model on a mixture of high and low fidelity data. These data are generated as numerical solutions obtained on fine and coarse meshes or as a (d−1)-dimensional approximation of the d-dimensional problem. We demonstrate our approach on a multiphase flow test problem, using transfer learning to train a dense, fully convolutional encoder-decoder CNN on the two classes of data. Numerical results from a sample uncertainty quantification (UQ) task demonstrate that our surrogate model outperforms MC with several times the data generation budget. This presentation is based on two publications: Song and Tartakovsky, J. Mach. Learn. Model. Comput., 3(1), 31-47, 2021; and Propp and Tartakovsky, J. Mach. Learn. Model. Comput., 6(2), 13-27, 2025.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">9:35 – 10:05 am</div>
+          <div class="tspeaker">Alireza Doostan <span class="taffil">· University of Colorado Boulder</span></div>
+          <div class="ttitle">Randomized Sketching for Streaming Data Analytics</div>
+          <details><summary>Abstract</summary>
+            <p>Large-scale scientific data streams – from high-fidelity simulations to sensor measurements – now arrive faster than they can be stored, whether the goal is compressing them for later reconstruction or discovering the governing equations that produced them. Streaming and in situ methods aim to address this limitation by never retaining the entire raw high-dimensional record. This talk presents randomized sketching as a common tool for that constraint, applied as early as possible in the pipeline so a fixed, reusable random projection compresses each incoming snapshot on arrival, a lightweight buffer accumulates primarily the compressed record, and any operation coupling different time steps is deferred to a single finalization pass over the retained sketches. This principle recurs across low-rank data reduction, neural representation learning, and governing-equation discovery. This is a joint work with Angran Li, Stephen Becker, Cooper Simpson, and Kyuwon Lee.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">10:05 – 10:35 am</div>
+          <div class="tspeaker">Siting Liu <span class="taffil">· University of California, Riverside</span></div>
+          <div class="ttitle">From ICON to GenICON: Probabilistic Operator Learning with Uncertainty Quantification</div>
+          <details><summary>Abstract</summary>
+            <p>In-context operator networks (ICON) learn solution operators for ODEs/PDEs by conditioning on example initial/boundary data and their solutions. I will present a probabilistic interpretation: ICON approximates the posterior predictive mean given the context. Using random differential equations, this connects ICON to Bayesian inference and motivates GenICON, a generative extension that samples from the posterior predictive distribution for principled uncertainty quantification. The framework unifies operator learning under a Bayesian lens and provides uncertainty-aware predictions.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <div class="break-card">10:35 – 11:00 am · Coffee Break</div>
+
+    <div class="parallel">
+      <div class="session-block" id="s2a">
+        <div class="session-title"><span class="stime">11:00 am – 12:00 pm · Session A</span>2A: AI Agents for Scientific Discovery<span class="loc">📍 105 Jordan</span></div>
+
+        <div class="talk">
+          <div class="ttime">11:00 – 11:30 am</div>
+          <div class="tspeaker">Francisco Villaescusa <span class="taffil">· Flatiron Institute</span></div>
+          <div class="ttitle">The Denario project</div>
+          <details><summary>Abstract</summary>
+            <p>Science advances by formulating and testing hypotheses, collecting and analyzing data, and drawing conclusions—yet much of a scientist’s time is spent in tasks such as coding analyses, writing and revising text, reviewing the literature, and learning new concepts. Can recent advances in AI help reclaim some of that time? In this talk, I will show how large language models and AI agents may help scientists with these tasks. I will first describe what AI agents are and their applications in science. Next, I will present Denario, a complex, publicly available, multi-AI-agent system designed to function as a research assistant. Developed and evaluated by a diverse team of scientists, mathematicians, and philosophers, Denario is an interdisciplinary tool capable of generating ideas, searching the literature, developing research plans, writing and executing code, crafting plots, drafting and reviewing scientific papers. To showcase its capabilities, I will conduct a live demonstration tasking the system with turning a dataset into ideas, codes, plots, and paper drafts in real time. I will then present and discuss some of the documents generated by Denario in disciplines such as astrophysics, biology, biophysics, biomedical informatics, chemistry, machine learning, material science, mathematical physics, medicine, neuroscience, planetary physics, and quantum physics. I’ll close by discussing how tools like Denario may help researchers accelerate scientific research and invite the audience to a broad discussion on the benefits and risks of this technology.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">11:30 am – 12:00 pm</div>
+          <div class="tspeaker">Qile Jiang <span class="taffil">· Brown University</span></div>
+          <div class="ttitle">Building and analyzing collaborative multi-agents for emergent discovery in scientific machine learning</div>
+          <details><summary>Abstract</summary>
+            <p>Collaborative multi-agent systems like AgenticSciML have shown that teams of LLM agents can propose, critique, and refine scientific machine learning methods, discovering solutions that outperform human-designed baselines by orders of magnitude. As we delegate more of the scientific process to such systems, in this talk, we will also present ways that we can analyze the internal dynamics of multi-agent collaboration and understand they reach their conclusions. Together, these directions point toward multi-agent systems that are not only powerful engines of scientific discovery but also transparent and reliable enough to be genuine research partners.</p>
+          </details>
+        </div>
+      </div>
+      <div class="session-block" id="s2b">
+        <div class="session-title"><span class="stime">11:00 am – 12:00 pm · Session B</span>2B: Geometry, Sampling &amp; High-Dimensional Inference<span class="loc">📍 106 Jordan</span></div>
+
+        <div class="talk">
+          <div class="ttime">11:00 – 11:30 am</div>
+          <div class="tspeaker">Yifan Chen <span class="taffil">· University of California, Los Angeles</span></div>
+          <div class="ttitle">Accelerating Sampling and Generative Diffusions for High-Dimensional Scientific Inference</div>
+          <details><summary>Abstract</summary>
+            <p>Probability measures are central computational objects in scientific computing and generative AI, where scientific conclusions often depend not only on a single sample but on calibrated distributions. The typical computational route to such a distribution is to evolve a probability law along a dynamics of measures, specified by a model, learned from data, or both. This talk presents some recent work on accelerating these dynamics through parallel, multiscale, and geometric ideas, with theoretical guarantees and high-dimensional applications such as probabilistic imaging and forecasting.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">11:30 am – 12:00 pm</div>
+          <div class="tspeaker">Anna Little <span class="taffil">· University of Utah</span></div>
+          <div class="ttitle">A Geometric Framework for Dimension Reduction and Clustering via Path Metrics</div>
+          <details><summary>Abstract</summary>
+            <p>In this talk, I will introduce a geometric framework for unsupervised learning that leverages power-weighted path metrics to effectively embed high-dimensional data while preserving its intrinsic geometric structure. I will begin by demonstrating how discrete, sample-based path distances converge to a density re-weighted geodesic distance on manifolds. Spectral convergence results for the associated Graph Laplacian operators then lead to theoretical guarantees for spectral convergence with these metrics. Building on these insights, I will showcase an application to single-cell RNA-sequencing data, where power-weighted path metrics outperform standard clustering and embedding methods by maintaining both local cluster fidelity and global data geometry. Finally, I will discuss a multi-manifold clustering approach based on path distances in a simplex graph, which ensures robust separation of intersecting manifolds even under noise and curvature. Collectively, these results illustrate the versatility and scalability of path-metric-based techniques in tackling modern challenges in manifold learning, clustering, and data visualization.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <div class="break-card">12:00 – 1:00 pm · Lunch Break</div>
+
+    <div class="parallel">
+      <div class="session-block" id="s3a">
+        <div class="session-title"><span class="stime">1:00 – 2:30 pm · Session A</span>3A: Agentic AI &amp; Foundation Models for Science &amp; Engineering<span class="loc">📍 105 Jordan</span></div>
+
+        <div class="talk">
+          <div class="ttime">1:00 – 1:30 pm</div>
+          <div class="tspeaker">Shivam Barwey <span class="taffil">· University of Notre Dame</span></div>
+          <div class="ttitle">A verifiable automation approach for the analysis of high-fidelity fluid dynamics simulations</div>
+          <details><summary>Abstract</summary>
+            <p>The focus of this talk is on acceleration of the analysis stage of the high-fidelity computational fluid dynamics workflow: a severely human-bandwidth-limited step at extreme scales that sits outside of the physics simulation itself. Central to this work is the formalization of ``analysis'' as the construction of natural-language descriptions of relative changes in either large-scale or fine-scale quantities of interest observed throughout many simulations. Based on this formalization, a graph representation of simulations is used to power agent-based automation of this process using a two-step procedure consisting of local neighborhood aggregations and global summarizations. The result is a graph-anchored harness (admitting different types of tools and language model backends) capable of generating verifiable scientific insights from complex datasets directly in natural language through a query refinement procedure. Demonstrations of the framework on high-fidelity computational fluid dynamics data (focusing on reacting flows) will be shown.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">1:30 – 2:00 pm</div>
+          <div class="tspeaker">Marta D'Elia <span class="taffil">· Atomic Machines and Stanford University</span></div>
+          <div class="ttitle">Minimizing the Thought-to-Thing time in engineering workflows</div>
+          <details><summary>Abstract</summary>
+            <p>Atomic Machines is developing a completely new AI-native digital micro-manufacturing technology stack that will enable new classes of microdevices. Critical to the mission is minimizing “thought-to-thing” time, i.e., the latency between an idea and a manufacturable device. Rather than maximize AI usage, we pursue a generate-to-solve strategy that uses as little AI as necessary, using AI to blend models grounded in physics, constraints, and verification to ensure our designs are trustworthy by construction. In this talk we present an end-to-end workflow that converts an informal description into a precise set of engineering requirements. From this input, an agentic system generates a multi-physics simulation of a first candidate component drawn from a catalog, and closes the loop modifying it with a manufacturability-first generative-design optimization approach. We automatically move from informal descriptions to producing parts that meet performance targets while satisfying process constraints, tolerances, and assembly requirements.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">2:00 – 2:30 pm</div>
+          <div class="tspeaker">Paul Brenner &amp; Charles Vardeman <span class="taffil">· University of Notre Dame</span></div>
+          <div class="ttitle">Human and AI Teaming for Discovery - Shared Memory</div>
+          <details><summary>Abstract</summary>
+            <p>As AI agents move from running instruments to arguing about results, the bottleneck in scientific discovery is shifting from raw capability to trust, provenance, and shared understanding. This talk frames human–AI teaming for discovery around a single organizing idea: a durable, shared memory that scientists and agents both write to and can trust over time. Drawing on a curated, continuously maintained knowledge base of the field's load-bearing work from 2022 to 2026, we trace an arc from "retrieval-augmented generation" toward memory as a governed, persistent system — the substrate on which cumulative science actually compounds.</p><p>We organize the problem around three mechanisms that keep collaboration trustworthy: change provenance (who or what contributed a claim, and on what basis), contextual-expertise measurement (who is qualified to weigh in, and how much), and contribution segmentation (trusted versus untrusted, converged versus contested). Shared memory is where these become concrete: temporal knowledge graphs that preserve when a fact was true, multi-user memory with dynamic access control and provenance tiers, lifecycle governance including deliberate forgetting, and benchmarks that test whether teams actually retain and reuse what they learn.</p><p>We close with a working example(s) — an LLM-maintained scientific wiki that instantiates these ideas as a lab's own compounding memory — and with open questions for the faculty: how do we credit contributions, retire stale claims, and calibrate reliance when a discovery is co-produced by people and machines? The goal is a practical agenda for AI teammates that remember, and that we can hold accountable.</p>
+          </details>
+        </div>
+      </div>
+      <div class="session-block" id="s3b">
+        <div class="session-title"><span class="stime">1:00 – 2:30 pm · Session B</span>3B: Mathematical Foundations of Machine Learning<span class="loc">📍 106 Jordan</span></div>
+
+        <div class="talk">
+          <div class="ttime">1:00 – 1:30 pm</div>
+          <div class="tspeaker">Wenjing Liao <span class="taffil">· Georgia Institute of Technology</span></div>
+          <div class="ttitle">Understanding Neural Scaling Laws of Transformers for In-Context Learning</div>
+          <details><summary>Abstract</summary>
+            <p>When training deep neural networks, a model’s generalization error is often observed to follow a power scaling law dependent on the model size and the data size. A theoretical interest in machine learning is to understand why transformer scaling laws emerge. In this talk, we present a mathematical framework for analyzing neural scaling laws of transformers for in-context learning. Our framework exploits low-dimensional structure in both the data and the underlying family of learning tasks, and quantify the benefits of pretraining on a family of tasks with structures and shared information. From this perspective, transformer scaling laws arise naturally from the geometry and complexity of the task space. Our analysis also provides a theoretically grounded interpretation of pretraining: its power lies in efficiently exploring a task space.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">1:30 – 2:00 pm</div>
+          <div class="tspeaker">Guowei Wei <span class="taffil">· University of Georgia</span></div>
+          <div class="ttitle">Mathematical AI for Biosciences</div>
+          <details><summary>Abstract</summary>
+            <p>Artificial intelligence (AI) has fundamentally transformed the landscape of science, engineering, and technology over the past decade and holds tremendous promise for data-driven discovery. However, AI-driven discovery faces significant challenges arising from the intricate complexity, high dimensionality, nonlinearity, and multiscale nature of biological data. We address these challenges through mathematical AI paradigms. By developing and integrating tools from algebraic topology, differential geometry, geometric topology, and commutative algebra, we have significantly enhanced the ability of AI to tackle complex biological data.</p><p>Using our mathematical AI approaches, my team was consistently a top winner in the D3R Grand Challenges, a worldwide annual competition series in computer-aided drug design and discovery. By further integrating mathematical AI with millions of patient-derived viral genomes, we uncovered the mechanisms underlying SARS-CoV-2 evolution and accurately predicted emerging dominant SARS-CoV-2 variants months in advance. I will also discuss applications of mathematical AI to other areas, including single-cell biology, genomics, and biomedical imaging.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">2:00 – 2:30 pm</div>
+          <div class="tspeaker">Rahul Parhi <span class="taffil">· University of California, San Diego</span></div>
+          <div class="ttitle">What Kinds of Functions Do Neural Networks Learn? Low-Norm vs. Flat Solutions</div>
+          <details><summary>Abstract</summary>
+            <p>This talk investigates the fundamental differences between low-norm and flat solutions of shallow ReLU networks training problems, particularly in high-dimensional settings. We sharply characterize the regularity of the functions learned by neural networks in these two regimes. This enables us to show that global minima with small weight norms exhibit strong generalization guarantees that are dimension-independent. In contrast, local minima that are “flat” can generalize poorly as the input dimension increases. We attribute this gap to a phenomenon we call neural shattering, where neurons specialize to extremely sparse input regions, resulting in activations that are nearly disjoint across data points. This forces the network to rely on large weight magnitudes, leading to poor generalization. Our analysis establishes an exponential separation between flat and low-norm minima. In particular, while flatness does imply some degree of generalization, we show that the corresponding convergence rates necessarily deteriorate exponentially with input dimension. These findings suggest that flatness alone does not fully explain the generalization performance of neural networks.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <div class="break-card">2:30 – 3:00 pm · Coffee Break</div>
+
+    <div class="parallel">
+      <div class="session-block" id="s3a-cont">
+        <div class="session-title"><span class="stime">3:00 – 3:30 pm · Session A</span>3A: Agentic AI &amp; Foundation Models for Science &amp; Engineering (continued)<span class="loc">📍 105 Jordan</span></div>
+
+        <div class="talk">
+          <div class="ttime">3:00 – 3:30 pm</div>
+          <div class="tspeaker">Meng Jiang <span class="taffil">· University of Notre Dame</span></div>
+          <div class="ttitle">Advances in Molecular Graph Foundation Models</div>
+          <details><summary>Abstract</summary>
+            <p>Foundation models are transforming molecular science from prediction to scientific reasoning and design. This talk reviews recent advances in molecular graph foundation models that enable AI to understand molecular structures, generate new compounds, and accelerate materials discovery. The presentation covers three core applications: virtual screening, inverse molecular design, and retrosynthetic planning, with a particular focus on the challenge of designing molecular structures that satisfy multiple functional objectives. I will introduce recent work on graph diffusion transformers for conditional molecular generation and in-context molecular design, multimodal large language models for joint molecular design and synthesis planning, and graph foundation models for polymer informatics. These techniques have enabled advances in polymer membrane discovery, explainable materials design, and reasoning over polymer structures. Finally, I will discuss the next generation of molecular graph foundation models that integrate graph learning, multimodal reasoning, and scientific knowledge to serve as intelligent assistants for chemistry and materials science, opening new opportunities for autonomous scientific discovery.</p>
+          </details>
+        </div>
+      </div>
+      <div class="session-block" id="s3b-cont">
+        <div class="session-title"><span class="stime">3:00 – 3:30 pm · Session B</span>3B: Mathematical Foundations of Machine Learning (continued)<span class="loc">📍 106 Jordan</span></div>
+
+        <div class="talk">
+          <div class="ttime">3:00 – 3:30 pm</div>
+          <div class="tspeaker">Elizabeth Newman <span class="taffil">· Tufts University</span></div>
+          <div class="ttitle">Boost Like a (Var)Pro: Trust-Region Gradient Boosting via Variable Projection</div>
+          <details><summary>Abstract</summary>
+            <p>Training machine learning models is computationally challenging; one has to solve a high-dimensional, nonconvex optimization problem repeatedly to appropriately calibrate hyperparameters. Our goal is to reduce the training burden by strategic model design paired with structure-exploiting optimization. To this end, we introduce VPBoost (Variable Projection Boosting), a gradient boosting algorithm for separable smooth approximators, i.e., models with a smooth nonlinear featurizer followed by a final linear mapping. VPBoost fuses variable projection, a training paradigm for separable models that enforces optimality of the linear weights, with a second-order weak learning strategy. The combination of second-order boosting, separable models, and variable projection give rise to a natural interpretation of VPBoost as a functional trust-region method. We leverage trust-region theory to prove VPBoost converges under mild regularity conditions. Through numerical experiments on synthetic data, image classification, and scientific machine learning, we demonstrate that VPBoost outperforms gradient-descent-based boosting and attains competitive performance relative to an industry-standard decision tree boosting algorithm.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <div class="parallel">
+      <div class="session-block" id="s4a">
+        <div class="session-title"><span class="stime">3:30 – 4:30 pm · Session A</span>4A: PDE–ML Coupling &amp; Operator Learning for Engineering<span class="loc">📍 105 Jordan</span></div>
+
+        <div class="talk">
+          <div class="ttime">3:30 – 4:00 pm</div>
+          <div class="tspeaker">Panos Stinis <span class="taffil">· Pacific Northwest National Laboratory</span></div>
+          <div class="ttitle">Stabilizing PDE-ML systems with applications to fluid dynamics</div>
+          <details><summary>Abstract</summary>
+            <p>A long-standing obstacle in the use of machine-learnt (ML) surrogates with partial differential equations (PDEs) is the onset of instabilities when the coupled system is simulated. We present a collection of different approaches to stabilize PDE-ML coupled systems. The first approach treats closure as a multifidelity problem, where a low-fidelity traditional PDE solver makes a prediction which is corrected by an operator network. The coupled system uses in-the-loop training which results in stable rollouts. The second approach couples a low-fidelity numerical solver with a multifidelity correction based on Kolmogorov-Arnold networks and is able to extrapolate accurately well beyond the training interval. The third approach identifies the instability of PDE-ML coupled systems as a result of the spectral bias of ML surrogates. It employs a projection formalism to allow the PDE and ML parts to operate at the same restricted range of frequencies. This leads to stable simulations whose accuracy is further augmented by the introduction of memory terms which account for the interaction with the neglected frequencies. We also offer an efficient way of approximating the memory using ML. Applications to benchmark problems in fluid mechanics are used for illustrative purposes.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">4:00 – 4:30 pm</div>
+          <div class="tspeaker">Nick Winovich <span class="taffil">· Sandia National Laboratories</span></div>
+          <div class="ttitle">Operator Learning for Non-Destructive Testing of Mechanical Components</div>
+          <details><summary>Abstract</summary>
+            <p>For complex engineered systems to operate reliably, it is essential that each constituent component performs as intended and remains within its allowable tolerances. A single component failure may cause complete system failure or, more insidiously, result in inaccurate outputs and unreliable performance. However, validating components within an assembled system can be time-consuming, difficult, and potentially destructive. Non-destructive testing offers an alternative that can assess component behavior while preserving the system for continued operation. This poses a natural inverse problem: can the motion and condition of internal components be inferred from indirect signals measured outside the system? In this talk, we investigate operator learning as a framework for performing non-destructive testing on ratcheting mechanisms enclosed in sealed assemblies. Neural operators are trained to learn mappings from externally observable signals to the internal motion of the mechanism. We compare several operator-learning architectures, including Deep Operator Networks and Fourier Neural Operators, along with two transformer-based approaches. In addition, we examine methods for quantifying predictive uncertainty, including ensemble techniques and conformal prediction, with the goal of identifying when model-based assessments can be considered reliable. Together, these results demonstrate the potential for operator learning to support efficient, uncertainty-aware, non-destructive evaluation of mechanical components.</p>
+          </details>
+        </div>
+      </div>
+      <div class="session-block" id="s4b">
+        <div class="session-title"><span class="stime">3:30 – 4:30 pm · Session B</span>4B: Reliable Prediction &amp; Uncertainty Quantification<span class="loc">📍 106 Jordan</span></div>
+
+        <div class="talk">
+          <div class="ttime">3:30 – 4:00 pm</div>
+          <div class="tspeaker">Wenrui Hao <span class="taffil">· Pennsylvania State University</span></div>
+          <div class="ttitle">Toward Reliable Scientific Machine Learning: Identifiability and Neural Operator Learning</div>
+          <details><summary>Abstract</summary>
+            <p>Scientific machine learning (SciML) provides powerful tools for modeling complex dynamical systems, yet its reliability remains challenged by parameter non-identifiability and the computational difficulty of learning nonlinear operators. This talk presents a unified computational framework toward reliable SciML by addressing these two fundamental challenges. First, we develop practical approaches for parameter identifiability analysis in data-driven models based on the Fisher Information Matrix and its connections to coordinate identifiability. Regularization strategies are further introduced to improve parameter inference, uncertainty quantification, and model robustness in the presence of non-identifiable parameters. Second, we present the Laplacian Eigenfunction-Based Neural Operator (LE-NO), an efficient operator-learning framework for nonlinear reaction–diffusion systems. By exploiting spectral structures of differential operators, LE-NO achieves improved computational efficiency and generalization across varying conditions while reducing dependence on large-scale training data. Finally, we demonstrate the framework in Alzheimer's disease modeling, showing how reliable inference and efficient nonlinear dynamics learning can enable high-fidelity digital twins for complex biological systems.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">4:00 – 4:30 pm</div>
+          <div class="tspeaker">Alexander Scheinker <span class="taffil">· Los Alamos National Laboratory</span></div>
+          <div class="ttitle">Self-Supervised Test-Time Method for Autoregressive Generative Models to Predict their own Roll-out Errors</div>
+          <details><summary>Abstract</summary>
+            <p>Autoregressive models (such as diffusion and flow models) accumulate error over long rollouts. However, during test-time deployment there is no access to ground truth data to measure the generated errors, which is problematic for real applications. In this talk, we present a method for test-time roll-out error prediction, we demonstrate it with bidirectional generative latent diffusion models for magnetohydrodynamics, astrophysical turbulent radiative mixing layers, the LE-PDE-UQ turbulent Navier-Stokes benchmark, and on CelebV-HQ natural face videos.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
+      <div class="session-block" id="lt1">
+        <div class="session-title lightning"><span class="stime">4:30 – 5:40 pm · 7 talks × 10 min</span>Lightning Talks I<span class="loc">📍 105 Jordan</span></div>
+        <ul class="lt-list">
+          <li><span class="lt-time">4:30 – 4:40 pm</span> · <span class="lt-name">Tijana Milenkovic</span> <span class="lt-affil">· University of Notre Dame</span><br /><span class="lt-title">Title TBA</span></li>
+          <li><span class="lt-time">4:40 – 4:50 pm</span> · <span class="lt-name">Diego Gomez-Zara</span> <span class="lt-affil">· University of Notre Dame</span><br /><span class="lt-title">Title TBA</span></li>
+          <li><span class="lt-time">4:50 – 5:00 pm</span> · <span class="lt-name">Owen Davis</span> <span class="lt-affil">· Sandia National Laboratories</span><br /><span class="lt-title">Multi-fidelity Triangular Transport: Hierarchical and Non-hierarchical Formulations</span></li>
+          <li><span class="lt-time">5:00 – 5:10 pm</span> · <span class="lt-name">Chris Vales</span> <span class="lt-affil">· Dartmouth College</span><br /><span class="lt-title">Accelerated kernel methods for spatiotemporal dynamics</span></li>
+          <li><span class="lt-time">5:10 – 5:20 pm</span> · <span class="lt-name">Weiqun Zhang</span> <span class="lt-affil">· Wright State University</span><br /><span class="lt-title">Evolution of Activation Functions</span></li>
+          <li><span class="lt-time">5:20 – 5:30 pm</span> · <span class="lt-name">Zhongjie Shi</span> <span class="lt-affil">· Georgia Institute of Technology</span><br /><span class="lt-title">Approximation and Generalization of Transformers for In-Context Learning with Cross-Task Structure</span></li>
+          <li><span class="lt-time">5:30 – 5:40 pm</span> · <span class="lt-name">Sanghyun Lee</span> <span class="lt-affil">· Florida State University</span><br /><span class="lt-title">Discontinuous Galerkin finite element operator network for solving non-smooth PDEs</span></li>
+        </ul>
+      </div>
+
+    <div class="event-card"><span class="ttime">6:00 – 7:30 pm</span><span class="ename">Poster Session</span> — details TBA<span class="loc">📍 Jordan Hall</span></div>
+
+    <div class="day-header" id="day2">Day 2 — Sunday, September 27, 2026</div>
+
+    <div class="parallel">
+      <div class="session-block" id="s5a">
+        <div class="session-title"><span class="stime">9:00 – 10:30 am · Session A</span>5A: Learning-Enhanced Numerical Methods for PDEs<span class="loc">📍 105 Jordan</span></div>
+
+        <div class="talk">
+          <div class="ttime">9:00 – 9:30 am</div>
+          <div class="tspeaker">Matthew Zahr <span class="taffil">· University of Notre Dame</span></div>
+          <div class="ttitle">Optimization-Based Simulation of High-Speed Flows</div>
+          <details><summary>Abstract</summary>
+            <p>In this talk, we present a class of optimization-based numerical methods for the simulation of high-speed compressible flows. The proposed framework leverages nonlinear finite element manifolds that adapt the approximation space to the most salient flow features, including boundary layers, shock waves, and rarefaction regions. By embedding problem-specific structure directly into the trial space (e.g., analytical functions or data-driven models), these methods enhance accuracy and efficiency, particularly in regimes characterized by strong gradients and discontinuities. Both the linear coefficients and the nonlinear parameters defining the approximation manifold are determined through the solution of an optimization problem. Numerical results demonstrate the potential of this approach to deliver highly accurate solutions on extremely coarse grids.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">9:30 – 10:00 am</div>
+          <div class="tspeaker">Li Wang <span class="taffil">· University of Minnesota</span></div>
+          <div class="ttitle">Learning-enhanced structure preserving methods for kinetic plasma models</div>
+          <details><summary>Abstract</summary>
+            <p>Plasma fusion holds great promise as a future source of clean energy. Despite decades of progress in developing reliable computational methods for plasma models, kinetic models—which provide a first-principles description of interacting charged particles—remain prohibitively expensive to solve. Their computational cost is far from meeting the millisecond-scale requirements of real-time burning-plasma control. In this talk, I will describe our recent efforts to integrate deep learning with conventional structure-preserving numerical methods to address some of the key challenges in simulating these kinetic models.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">10:00 – 10:30 am</div>
+          <div class="tspeaker">Yingjie Liu <span class="taffil">· Georgia Institute of Technology</span></div>
+          <div class="ttitle">Neural Networks with Local Converging Inputs (NNLCI) for Predicting Smooth and Non-smooth PDE Solutions with Minimal Training Data, Strong Generalization, and Drastically Reduced Complexity</div>
+          <details><summary>Abstract</summary>
+            <p>This talk presents a series of joint works with my collaborators. Artificial neural networks map inputs to outputs, but when those inputs, outputs, or loss functions depend on global information, network complexity can grow rapidly. Such complexity typically requires large, dense training datasets to achieve meaningful accuracy. In contrast, our recently developed NNLCI method is a local neural network approach: it operates like a scanning microscope that, at each location, examines two coarse-grid numerical solutions—one more accurate than the other—and then predicts the corresponding highfidelity solution at that location. The method has several distinguishing advantages: 1. Small, simple neural network architecture thanks to its strictly local design. 2. High data efficiency: a single finegrid simulation produces hundreds to thousands of local training samples. 3. Sparse training across parameter space: finegrid simulations can be widely spaced, yet the method generalizes strongly due to its locality. 4. High accuracy for both smooth and nonsmooth features: NNLCI resolves discontinuities and complex shock interactions sharply. 5. Geometric flexibility: it works naturally on complex domains, and training and prediction can occur on different geometries. 6. Substantial computational savings: in 2D experiments, NNLCI achieves a twoorderofmagnitude reduction in complexity for shockinteraction problems, and roughly a 500× reduction for smooth solutions such as electromagnetic waves. I will present applications of NNLCI to a broad range of problems, including 1D and 2D Euler equations with shock interactions, unstructured grids, electromagnetic wave scattering from curved conductors with corners, the Poisson–Nernst–Planck ion channel model, 3D Stokes flows, and 3D Black–Scholes equations.</p>
+          </details>
+        </div>
+      </div>
+      <div class="session-block" id="s5b">
+        <div class="session-title"><span class="stime">9:00 – 10:30 am · Session B</span>5B: Stochastic Modeling, Transport &amp; Uncertainty Quantification<span class="loc">📍 106 Jordan</span></div>
+
+        <div class="talk">
+          <div class="ttime">9:00 – 9:30 am</div>
+          <div class="tspeaker">Erhan Bayraktar <span class="taffil">· University of Michigan</span></div>
+          <div class="ttitle">Analytical Approach to Continuous-Time Causal Optimal Transport</div>
+          <details><summary>Abstract</summary>
+            <p>In this talk, we study causal optimal transport in continuous time, with Markovian cost, between a finite-state Markov source and a diffusion target. By replacing the source with its conditional law given the observation of the target, we characterize the value of this transport problem through a fully nonlinear parabolic master equation on an enlarged state space. We further show that this value coincides with those of two equivalent stochastic control problems on the simplex: a control of the Kushner--Stratonovich filtering equation with a zero-mean condition, and a state-constrained stochastic optimal control problem. The proof relies on establishing a comparison principle for suitable classes of subsolutions and supersolutions to the master equation. Both formulations give rise to implementable numerical schemes that approximate the value from above and below.</p><p>This is joint work with Julio Backhoff-Veraguas, Ibrahim Ekren, and Antonios Zitridis</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">9:30 – 10:00 am</div>
+          <div class="tspeaker">Gianluca Geraci <span class="taffil">· Sandia National Laboratories</span></div>
+          <div class="ttitle">Multi-fidelity triangular transport formulations</div>
+          <details><summary>Abstract</summary>
+            <p>Many computational science and engineering applications can benefit from dimension reduction techniques, as complex quantities of interest often admit accurate representations on low-dimensional manifolds. Motivated by the need to design and analyze workflows that integrate heterogeneous sources of information represented on their respective manifolds, this talk focuses on strategies for linking ensembles of data generated by different models.</p><p>Specifically, we investigate measure transport approaches for constructing deterministic maps between model-specific probability distributions through a shared reference distribution. We consider triangular transport maps for this purpose, with particular emphasis on their multi-fidelity construction in settings where high-fidelity model data are limited. Although recent advances in triangular transport algorithms have been substantial, their data requirements remain challenging for complex scientific applications. We show that combining information from multiple sources can provide an effective strategy for mitigating this limitation.</p><p>We will discuss two classes of parameterizations for triangular transport maps: hierarchical and non-hierarchical approaches. Their respective advantages and limitations will be examined through a range of numerical test cases, from analytical examples to applications involving amortized inference.</p><p>SNL is managed and operated by NTESS under DOE NNSA contract DE-NA0003525.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">10:00 – 10:30 am</div>
+          <div class="tspeaker">Xiaofan Li <span class="taffil">· Illinois Institute of Technology</span></div>
+          <div class="ttitle">Structure-Aware Variational Learning of a Class of Generalized Diffusions</div>
+          <details><summary>Abstract</summary>
+            <p>Learning the underlying potential energy of stochastic gradient systems from partial and noisy observations is a fundamental problem arising in physics, chemistry, and data-driven modeling. Classical approaches often rely on direct regression of governing equations or velocity fields, which can be sensitive to noise and external perturbations and may fail when observations are incomplete. In this work, we propose a structure-aware, energy-based learning framework for inferring unknown potential functions in generalized diffusion processes, grounded in the energetic variational approach. Starting from the energy–dissipation law associated with the Fokker–Planck equation, we construct loss functions based on the De Giorgi dissipation functional, which consistently couple the free energy and the dissipation mechanism of the system. This formulation avoids explicit enforcement of the governing partial differential equation and preserves the underlying variational structure of the dynamics.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <div class="break-card">10:30 – 11:00 am · Coffee Break</div>
+
+    <div class="parallel">
+      <div class="session-block" id="s6a">
+        <div class="session-title"><span class="stime">11:00 am – 12:00 pm · Session A</span>6A: Operator Learning: Architectures &amp; In-Context Methods<span class="loc">📍 105 Jordan</span></div>
+
+        <div class="talk">
+          <div class="ttime">11:00 – 11:30 am</div>
+          <div class="tspeaker">Yue Yu <span class="taffil">· Lehigh University</span></div>
+          <div class="ttitle">Smoother or rougher: how to generate data to learn nonlocal operators?</div>
+          <details><summary>Abstract</summary>
+            <p>The problem of learning operators from input-output data is fundamental to many areas of scientific computing and system identification. In this work, we consider the specific inverse problem of recovering an unknown kernel function that governs a nonlocal operator, given a dataset of noisy observations. This formulation encompasses a wide range of applications, from constitutive modeling in continuum mechanics to the identification of nonlocal interaction laws in particle systems. Based on this problem, we aim to address two fundamental questions in scientific machine learning: 1) Is the smoother or rougher data more favorable for a robust operator learning? 2) How is data quality, such as its regularity and noise levels, going to impact the learning results?</p><p>The primary objective of this work is to rigorously quantify how the roughness of input data influences the learnability of kernels in nonlocal operators. We posit that rough data expands the range of learnable kernels by slowing the spectral decay of the data operator, thereby increasing the effective dimension of the inverse problem. Firstly, a theoretical bridge between the continuous regularity of the input data and the spectral decay rate of the discretized operator is established. We define the effective dimension of the inverse problem via the spectrum of the normal operator, and analyze how it scales with the regularization parameter. It was found that rougher data leads to a slower polynomial decay of eigenvalues, denoted by a smaller decay parameter. Second, we derive explicit convergence rates for the estimation error in the small noise limit. By analyzing the bias-variance trade-off under a source condition characterized by the kernel's smoothness, we demonstrate that the optimal convergence rate depends critically on the interplay between the kernel smoothness and the data roughness. The analysis is numerical verified using both Tikhonov regularized estimators and neural network-based approaches. We confirm that as the data becomes rougher, the effective dimension increases, enabling the accurate recovery of increasingly complex kernel functions and the corresponding nonlocal operators.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">11:30 am – 12:00 pm</div>
+          <div class="tspeaker">Guang Lin <span class="taffil">· Purdue University</span></div>
+          <div class="ttitle">LegONet: Plug-and-Play Structure-Preserving Neural Operator Blocks for Compositional PDE Learning</div>
+          <details><summary>Abstract</summary>
+            <p>Learned PDE solvers are often trained as monolithic surrogates for a specific equation, boundary condition and discretization. This makes them difficult to reuse when mechanisms change and it can limit stability under long-horizon rollout. We introduce Lego-like Operator Network (LegONet), a compositional framework that builds PDE solvers from plug-and-play, structure-preserving operator blocks defined on shared boundary-adapted spectral representations. LegONet separates boundary handling from mechanism learning, satisfying boundary conditions by construction. It also separates mechanism learning from time integration, enabling pretrained blocks to be assembled into new solvers without retraining. We also derive a finite-horizon error decomposition that separates block mismatch from splitting error and provides mechanism-level diagnostics for long-horizon predictions. Across ten time-dependent PDEs, LegONet delivers accurate closed-loop rollouts with improved stability under cross-PDE recombination and boundary reconfiguration. More broadly, this modular formulation suggests a path from task-specific neural solvers towards plug-and-play operator libraries for scientific computing.</p>
+          </details>
+        </div>
+      </div>
+      <div class="session-block" id="s6b">
+        <div class="session-title"><span class="stime">11:00 am – 12:00 pm · Session B</span>6B: Surrogate Models, Reduced-Order Methods &amp; Efficient Algorithms<span class="loc">📍 106 Jordan</span></div>
+
+        <div class="talk">
+          <div class="ttime">11:00 – 11:30 am</div>
+          <div class="tspeaker">Ibrahim Ekren <span class="taffil">· University of Michigan</span></div>
+          <div class="ttitle">Consensus-based algorithms for min–max problems: uniform-in-time propagation of chaos</div>
+          <details><summary>Abstract</summary>
+            <p>Consensus-based methods are derivative-free particle algorithms for non-convex optimization and min–max problems in machine learning. The focus of this talk is a consensus-based algorithm for saddle-point problems, in which two interacting particle populations play the competing roles. Via a coupling argument exploiting the decay and concentration of particle variances, we establish uniform-in-time propagation of chaos with L2 error of order O(1/N1 + 1/N2): finitely many particles remain near a saddle point over arbitrarily long horizons, confirming the method's feasibility. I will also briefly mention a companion uniform-in-time weak propagation-of-chaos result, of order O(1/N), for consensus-based optimization. Joint work with Erhan Bayraktar, Zhiyan Ding, and Hongyi Zhou.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">11:30 am – 12:00 pm</div>
+          <div class="tspeaker">Patrick Brewick <span class="taffil">· University of Notre Dame</span></div>
+          <div class="ttitle">Toward Data-Efficient Scientific Machine Learning for Nonlinear Dynamics: Active Solution Operators and Bi-Fidelity Generative Models</div>
+          <details><summary>Abstract</summary>
+            <p>Scientific machine learning offers powerful tools for approximating nonlinear dynamical systems, but its practical impact is often limited by the cost, scarcity, and uneven informativeness of training data. This talk presents two complementary strategies for improving data efficiency in surrogate modeling. First, active learning is formulated as a sequential decision problem in which a reinforcement learning agent selects informative simulations for training neural solution operators. Using a Fourier neural operator surrogate, the framework learns transferable sampling policies that balance uncertainty, diversity, and exploration of extreme system responses across multiple partial differential equation families. Second, a bi-fidelity latent generative framework is introduced for nonlinear hysteretic structural systems, where abundant low-fidelity simulations are combined with limited high-fidelity numerical or experimental data. The model seeks to identify latent variables associated with meaningful nonlinear mechanisms while generating accurate high-fidelity response histories. Together, these studies illustrate a broader scientific machine learning paradigm in which computational resources are allocated strategically, low-cost data are exploited systematically, and learned representations retain connections to underlying physics. The combined perspective highlights how active data acquisition and multi-fidelity generative modeling can expand the applicability of surrogate models to complex, path-dependent, and high-dimensional engineering systems under strict simulation and experimental data budgets.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <div class="break-card">12:00 – 1:00 pm · Lunch Break</div>
+
+    <div class="parallel">
+      <div class="session-block" id="s6a-cont">
+        <div class="session-title"><span class="stime">1:00 – 2:00 pm · Session A</span>6A: Operator Learning: Architectures &amp; In-Context Methods (continued)<span class="loc">📍 105 Jordan</span></div>
+
+        <div class="talk">
+          <div class="ttime">1:00 – 1:30 pm</div>
+          <div class="tspeaker">Jonathan Siegel <span class="taffil">· Texas A&amp;M University</span></div>
+          <div class="ttitle">Operator-to-operator learning using DeepOSets and FNOSets</div>
+          <details><summary>Abstract</summary>
+            <p>We will introduce and discuss operator-to-operator learning. In this methodology, which generalizes operator learning, a neural network is used to learn a map between two operators, or from an operator to a function, instead of a map between two function spaces. This can be applied to a variety of inverse problems, such as the inverse Darcy problem and Calderon problem, which naturally take as input an operator on a function space. In-context multi-operator learning can also be put into this framework. We will present two architectures, DeepOSets and FNOSets, for the operator-to-operator learning problem and prove their universality. Finally, we will present numerical experiments demonstrating the efficacy of these methods.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">1:30 – 2:00 pm</div>
+          <div class="tspeaker">Rongjie Lai <span class="taffil">· Purdue University</span></div>
+          <div class="ttitle">Self-supervised In-context Operator Learning on Probability Measure Space: Theory and Applications</div>
+          <details><summary>Abstract</summary>
+            <p>Many fundamental problems on probability measure spaces, including optimal transport, mean field control/games, and Wasserstein gradient flows, are computationally demanding. Existing learning methods often rely on solvers designed for individual problem instances and require costly retraining for each new instance. In context learning with transformers offers a new paradigm for approximating families of operators from only a few context examples, without task specific retraining. In this talk, I will present our recent work on an self-supervised in-context operator learning framework for approximating solution operators on probability measure spaces. The framework is independent of discretization, making it well suited to high dimensional measure transport problems, and requires no supervised solution labels, substantially reducing data generation costs. I will demonstrate its applications to optimal transport, mean field control, Wasserstein gradient flows, swarm control, score matching, and fluid mixing. I will also present a generalization error analysis of the proposed transformer model, connecting our results to the emerging theory of in context learning and highlighting their broader theoretical implications.</p>
+          </details>
+        </div>
+      </div>
+      <div class="session-block" id="s6b-cont">
+        <div class="session-title"><span class="stime">1:00 – 2:00 pm · Session B</span>6B: Surrogate Models, Reduced-Order Methods &amp; Efficient Algorithms (continued)<span class="loc">📍 106 Jordan</span></div>
+
+        <div class="talk">
+          <div class="ttime">1:00 – 1:30 pm</div>
+          <div class="tspeaker">Alexandros Taflanidis <span class="taffil">· University of Notre Dame</span></div>
+          <div class="ttitle">Leveraging scientific machine learning techniques to support planning and emergency response management for storm surge risk</div>
+          <details><summary>Abstract</summary>
+            <p>Prediction of storm-surge hazard and impacts within planning (pre-disaster), emergency management and post-disaster settings has emerged as a key priority in natural hazard risk mitigation efforts. Migration towards coasts as well as concerns related to the future effects of climate change, further stress the importance of research efforts that attempt to address this priority. Numerical advances in storm surge prediction are one of the most critical such efforts. These advances have produced high-fidelity simulation models that permit a detailed representation of hydrodynamic processes and therefore support high-accuracy surge forecasting. Unfortunately, the computational burden of such numerical models is large, requiring thousands of CPU hours for each simulation, something that limits their applicability for hurricane risk assessment and their broader use in regional planning or emergency response management efforts. This presentation will review how machine learning techniques have been recently promoted to address this challenge, and how the integration of such techniques can be established to better serve the needs of the relevant decision makers (e.g., planners and emergency managers). Emphasis is placed on technical aspects for integrating surrogate modeling techniques to provide surge predictions using a database of high-fidelity storm simulations. This ultimately supports great versatility in leveraging high-fidelity modeling to support regional flood studies (supported by FEMA or Army Corps of Engineers) and real-time emergency response management (supported by NOAA). The discussion then moves to discussing recent advancements for the implementation of graph neural networks as surrogate model in this context, examining its abilities to capture complex spatial dependencies in nearshore domains.</p>
+          </details>
+        </div>
+
+        <div class="talk">
+          <div class="ttime">1:30 – 2:00 pm</div>
+          <div class="tspeaker">Qi Di <span class="taffil">· Purdue University</span></div>
+          <div class="ttitle">Reduced-order models and data assimilation for prediction and uncertainty quantification of multiscale turbulent systems</div>
+          <details><summary>Abstract</summary>
+            <p>A new strategy is presented for the statistical forecasts of multiscale nonlinear systems involving non-Gaussian probability distributions. The capability of using reduced-order models to capture key statistical features is investigated. A closed stochastic-statistical modeling framework is proposed using a high-order statistical closure enabling accurate prediction of leading-order statistical moments and probability density functions in multiscale complex turbulent systems. A new efficient ensemble forecast algorithm is developed dealing with the nonlinear multiscale coupling mechanism as a characteristic feature in high-dimensional turbulent systems. To address challenges associated with closely coupled spatio- temporal scales in turbulent states and expensive large ensemble simulation for high-dimensional complex systems, we introduce efficient computational strategies using the random batch method. Effective nonlinear ensemble filters are developed based on the nonlinear coupling structures of the explicit stochastic and statistical equations, which satisfy an infinite-dimensional Kalman-Bucy filter with conditional Gaussian dynamics. It is demonstrated that crucial principal statistical quantities in the most important large scales can be captured efficiently with accuracy using the new reduced-order model in various dynamical regimes of the flow field with distinct statistical structures.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
+      <div class="session-block" id="lt2">
+        <div class="session-title lightning"><span class="stime">2:00 – 2:50 pm · 5 talks × 10 min</span>Lightning Talks II<span class="loc">📍 105 Jordan</span></div>
+        <ul class="lt-list">
+          <li><span class="lt-time">2:00 – 2:10 pm</span> · <span class="lt-name">Carlos Sing Long</span> <span class="lt-affil">· TBA</span><br /><span class="lt-title">Title TBA</span></li>
+          <li><span class="lt-time">2:10 – 2:20 pm</span> · <span class="lt-name">Guangyu Meng</span> <span class="lt-affil">· University of Notre Dame</span><br /><span class="lt-title">TopoAgent: An Agentic Framework for Automated Topology Learning in Medical Imaging</span></li>
+          <li><span class="lt-time">2:20 – 2:30 pm</span> · <span class="lt-name">Xincheng Wang</span> <span class="lt-affil">· University of Notre Dame</span><br /><span class="lt-title">Inference of Self-Limiting Neutrophil Swarming Dynamics Using Bayesian Physics-Informed Neural Networks</span></li>
+          <li><span class="lt-time">2:30 – 2:40 pm</span> · <span class="lt-name">Bahador Bahmani</span> <span class="lt-affil">· Northwestern University</span><br /><span class="lt-title">Constitutive Priors for Inverse Design</span></li>
+          <li><span class="lt-time">2:40 – 2:50 pm</span> · <span class="lt-name">Jialiang Fan</span> <span class="lt-affil">· University of Notre Dame</span><br /><span class="lt-title">SafeGen-LLM: Enhancing Safety Generalization in Task Planning for Robotic Systems</span></li>
+        </ul>
+      </div>
+
+    <div class="break-card">3:00 pm · Departure</div>
+
+  </section>
+
 </div>
 
 <footer>&copy; 2026 SciML Workshop at the University of Notre Dame</footer>
