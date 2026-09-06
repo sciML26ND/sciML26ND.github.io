@@ -25,6 +25,14 @@
     section { padding: 44px 0 32px; }
     h2 { font-family: 'Google Sans', 'Roboto', sans-serif; font-size: 1.5rem; font-weight: 500; color: #1a73e8; margin-bottom: 20px; }
     p { margin-bottom: 14px; }
+    .chair { display: inline-block; background: #fff; border: 1px solid #d2e3fc; color: #0d47a1; font-size: .78rem; font-weight: 500; border-radius: 4px; padding: 0 8px; margin-left: 8px; vertical-align: 1px; white-space: nowrap; }
+    table.glance .chairline { display: block; font-size: .8rem; color: #0d47a1; margin-top: 2px; font-weight: 500; }
+    .poster-list { list-style: none; padding: 0; margin: 0; counter-reset: pnum; }
+    .poster-list li { background: #f8f9fa; border-left: 4px solid #f9ab00; border-radius: 8px; padding: 11px 16px; margin-bottom: 9px; }
+    .poster-list .p-num { display: inline-block; min-width: 26px; color: #5f6368; font-size: .8rem; }
+    .poster-list .p-name { font-weight: 500; }
+    .poster-list .p-affil { color: #5f6368; font-weight: 400; font-size: .9rem; }
+    .poster-list .p-title { font-style: italic; font-size: .9rem; color: #3c4043; display: block; margin-top: 2px; }
     footer { background: #f8f9fa; border-top: 1px solid #e0e0e0; text-align: center; padding: 28px 24px; font-size: .85rem; color: #5f6368; margin-top: 24px; }
 
     .tentative-note { background: #fef7e0; border: 1px solid #f9e9b8; border-radius: 8px; padding: 14px 18px; font-size: .92rem; color: #5f4b00; margin: 26px 0 0; }
@@ -131,7 +139,7 @@
       finalized closer to the workshop.
     </div>
     <p class="jump-links">
-      Jump to: <a href="#day1">Day 1 – Saturday, Sept 26</a> <a href="#day2">Day 2 – Sunday, Sept 27</a>
+      Jump to: <a href="#day1">Day 1 – Saturday, Sept 26</a> <a href="#day2">Day 2 – Sunday, Sept 27</a> <a href="#posters">Poster Presentations</a>
     </p>
 
     <div class="glance-wrap">
@@ -145,38 +153,38 @@
         <tr class="trans"><td class="time">9:00 – 9:05 am</td><td colspan="2">Move to session rooms</td></tr>
         <tr>
           <td class="time">9:05 – 10:35 am</td>
-          <td><a class="sess" href="#s1a"><span class="code">1A</span>Data-Driven Modeling &amp; Digital Twins</a><span class="talkline"><span class="tl-time">9:05</span> <b>Houman Owhadi</b> — <i>Graphical conditional generative modeling for digital twin modeling</i></span><span class="talkline"><span class="tl-time">9:35</span> <b>Dongbin Xiu</b> — <i>Modeling Observable Dynamics: Flow Map Learning, Delay Representation and Digital Twins</i></span><span class="talkline"><span class="tl-time">10:05</span> <b>Tan Bui</b> — <i>Real-time SciML-based forecast, calibration, and optimal control algorithms for Digital Twins</i></span></td>
-          <td><a class="sess" href="#s1b"><span class="code">1B</span>Sparse Data, Streaming &amp; Probabilistic Learning</a><span class="talkline"><span class="tl-time">9:05</span> <b>Daniel Tartakovsky</b> — <i>Learning from Sparse Data</i></span><span class="talkline"><span class="tl-time">9:35</span> <b>Alireza Doostan</b> — <i>Randomized Sketching for Streaming Data Analytics</i></span><span class="talkline"><span class="tl-time">10:05</span> <b>Siting Liu</b> — <i>From ICON to GenICON: Probabilistic Operator Learning with Uncertainty Quantification</i></span></td>
+          <td><a class="sess" href="#s1a"><span class="code">1A</span>Data-Driven Modeling &amp; Digital Twins</a><span class="chairline">Chair: Guang Lin</span><span class="talkline"><span class="tl-time">9:05</span> <b>Houman Owhadi</b> — <i>Graphical conditional generative modeling for digital twin modeling</i></span><span class="talkline"><span class="tl-time">9:35</span> <b>Dongbin Xiu</b> — <i>Modeling Observable Dynamics: Flow Map Learning, Delay Representation and Digital Twins</i></span><span class="talkline"><span class="tl-time">10:05</span> <b>Tan Bui</b> — <i>Real-time SciML-based forecast, calibration, and optimal control algorithms for Digital Twins</i></span></td>
+          <td><a class="sess" href="#s1b"><span class="code">1B</span>Sparse Data, Streaming &amp; Probabilistic Learning</a><span class="chairline">Chair: Zhiliang Xu</span><span class="talkline"><span class="tl-time">9:05</span> <b>Daniel Tartakovsky</b> — <i>Learning from Sparse Data</i></span><span class="talkline"><span class="tl-time">9:35</span> <b>Alireza Doostan</b> — <i>Randomized Sketching for Streaming Data Analytics</i></span><span class="talkline"><span class="tl-time">10:05</span> <b>Siting Liu</b> — <i>From ICON to GenICON: Probabilistic Operator Learning with Uncertainty Quantification</i></span></td>
         </tr>
         <tr class="break"><td class="time">10:35 – 11:00 am</td><td colspan="2">Coffee Break</td></tr>
         <tr>
           <td class="time">11:00 am – 12:00 pm</td>
-          <td><a class="sess" href="#s2a"><span class="code">2A</span>AI Agents for Scientific Discovery</a><span class="talkline"><span class="tl-time">11:00</span> <b>Francisco Villaescusa</b> — <i>The Denario project</i></span><span class="talkline"><span class="tl-time">11:30</span> <b>Qile Jiang</b> — <i>Building and analyzing collaborative multi-agents for emergent discovery in scientific machine learning</i></span></td>
-          <td><a class="sess" href="#s2b"><span class="code">2B</span>Geometry, Sampling &amp; High-Dimensional Inference</a><span class="talkline"><span class="tl-time">11:00</span> <b>Yifan Chen</b> — <i>Accelerating Sampling and Generative Diffusions for High-Dimensional Scientific Inference</i></span><span class="talkline"><span class="tl-time">11:30</span> <b>Anna Little</b> — <i>A Geometric Framework for Dimension Reduction and Clustering via Path Metrics</i></span></td>
+          <td><a class="sess" href="#s2a"><span class="code">2A</span>AI Agents for Scientific Discovery</a><span class="chairline">Chair: Daniele Schiavazzi</span><span class="talkline"><span class="tl-time">11:00</span> <b>Francisco Villaescusa</b> — <i>The Denario project</i></span><span class="talkline"><span class="tl-time">11:30</span> <b>Qile Jiang</b> — <i>Building and analyzing collaborative multi-agents for emergent discovery in scientific machine learning</i></span></td>
+          <td><a class="sess" href="#s2b"><span class="code">2B</span>Geometry, Sampling &amp; High-Dimensional Inference</a><span class="chairline">Chair: Di Qi</span><span class="talkline"><span class="tl-time">11:00</span> <b>Yifan Chen</b> — <i>Accelerating Sampling and Generative Diffusions for High-Dimensional Scientific Inference</i></span><span class="talkline"><span class="tl-time">11:30</span> <b>Anna Little</b> — <i>A Geometric Framework for Dimension Reduction and Clustering via Path Metrics</i></span></td>
         </tr>
         <tr class="break"><td class="time">12:00 – 1:00 pm</td><td colspan="2">Lunch Break</td></tr>
         <tr>
           <td class="time">1:00 – 2:30 pm</td>
-          <td><a class="sess" href="#s3a"><span class="code">3A</span>Agentic AI &amp; Foundation Models for Science &amp; Engineering</a><span class="talkline"><span class="tl-time">1:00</span> <b>Shivam Barwey</b> — <i>A verifiable automation approach for the analysis of high-fidelity fluid dynamics simulations</i></span><span class="talkline"><span class="tl-time">1:30</span> <b>Marta D'Elia</b> — <i>Minimizing the Thought-to-Thing time in engineering workflows</i></span><span class="talkline"><span class="tl-time">2:00</span> <b>Paul Brenner &amp; Charles Vardeman</b> — <i>Human and AI Teaming for Discovery - Shared Memory</i></span></td>
-          <td><a class="sess" href="#s3b"><span class="code">3B</span>Mathematical Foundations of Machine Learning</a><span class="talkline"><span class="tl-time">1:00</span> <b>Wenjing Liao</b> — <i>Understanding Neural Scaling Laws of Transformers for In-Context Learning</i></span><span class="talkline"><span class="tl-time">1:30</span> <b>Guowei Wei</b> — <i>Mathematical AI for Biosciences</i></span><span class="talkline"><span class="tl-time">2:00</span> <b>Rahul Parhi</b> — <i>What Kinds of Functions Do Neural Networks Learn? Low-Norm vs. Flat Solutions</i></span></td>
+          <td><a class="sess" href="#s3a"><span class="code">3A</span>Agentic AI &amp; Foundation Models for Science &amp; Engineering</a><span class="chairline">Chair: Daniele Schiavazzi</span><span class="talkline"><span class="tl-time">1:00</span> <b>Shivam Barwey</b> — <i>A verifiable automation approach for the analysis of high-fidelity fluid dynamics simulations</i></span><span class="talkline"><span class="tl-time">1:30</span> <b>Marta D'Elia</b> — <i>Minimizing the Thought-to-Thing time in engineering workflows</i></span><span class="talkline"><span class="tl-time">2:00</span> <b>Paul Brenner &amp; Charles Vardeman</b> — <i>Human and AI Teaming for Discovery - Shared Memory</i></span></td>
+          <td><a class="sess" href="#s3b"><span class="code">3B</span>Mathematical Foundations of Machine Learning</a><span class="chairline">Chair: Zecheng Zhang</span><span class="talkline"><span class="tl-time">1:00</span> <b>Wenjing Liao</b> — <i>Understanding Neural Scaling Laws of Transformers for In-Context Learning</i></span><span class="talkline"><span class="tl-time">1:30</span> <b>Guowei Wei</b> — <i>Mathematical AI for Biosciences</i></span><span class="talkline"><span class="tl-time">2:00</span> <b>Rahul Parhi</b> — <i>What Kinds of Functions Do Neural Networks Learn? Low-Norm vs. Flat Solutions</i></span></td>
         </tr>
         <tr class="break"><td class="time">2:30 – 3:00 pm</td><td colspan="2">Coffee Break</td></tr>
         <tr>
           <td class="time">3:00 – 3:30 pm</td>
-          <td><a class="sess" href="#s3a-cont"><span class="code">3A</span>Agentic AI &amp; Foundation Models for Science &amp; Engineering (continued)</a><span class="talkline"><span class="tl-time">3:00</span> <b>Meng Jiang</b> — <i>Advances in Molecular Graph Foundation Models</i></span></td>
-          <td><a class="sess" href="#s3b-cont"><span class="code">3B</span>Mathematical Foundations of Machine Learning (continued)</a><span class="talkline"><span class="tl-time">3:00</span> <b>Elizabeth Newman</b> — <i>Boost Like a (Var)Pro: Trust-Region Gradient Boosting via Variable Projection</i></span></td>
+          <td><a class="sess" href="#s3a-cont"><span class="code">3A</span>Agentic AI &amp; Foundation Models for Science &amp; Engineering (continued)</a><span class="chairline">Chair: Daniele Schiavazzi</span><span class="talkline"><span class="tl-time">3:00</span> <b>Meng Jiang</b> — <i>Advances in Molecular Graph Foundation Models</i></span></td>
+          <td><a class="sess" href="#s3b-cont"><span class="code">3B</span>Mathematical Foundations of Machine Learning (continued)</a><span class="chairline">Chair: Zecheng Zhang</span><span class="talkline"><span class="tl-time">3:00</span> <b>Elizabeth Newman</b> — <i>Boost Like a (Var)Pro: Trust-Region Gradient Boosting via Variable Projection</i></span></td>
         </tr>
         <tr>
           <td class="time">3:30 – 4:30 pm</td>
-          <td><a class="sess" href="#s4a"><span class="code">4A</span>PDE–ML Coupling &amp; Operator Learning for Engineering</a><span class="talkline"><span class="tl-time">3:30</span> <b>Panos Stinis</b> — <i>Stabilizing PDE-ML systems with applications to fluid dynamics</i></span><span class="talkline"><span class="tl-time">4:00</span> <b>Nick Winovich</b> — <i>Operator Learning for Non-Destructive Testing of Mechanical Components</i></span></td>
-          <td><a class="sess" href="#s4b"><span class="code">4B</span>Reliable Prediction &amp; Uncertainty Quantification</a><span class="talkline"><span class="tl-time">3:30</span> <b>Wenrui Hao</b> — <i>Toward Reliable Scientific Machine Learning: Identifiability and Neural Operator Learning</i></span><span class="talkline"><span class="tl-time">4:00</span> <b>Alexander Scheinker</b> — <i>Self-Supervised Test-Time Method for Autoregressive Generative Models to Predict their own Roll-out Errors</i></span></td>
+          <td><a class="sess" href="#s4a"><span class="code">4A</span>PDE–ML Coupling &amp; Operator Learning for Engineering</a><span class="chairline">Chair: Guang Lin</span><span class="talkline"><span class="tl-time">3:30</span> <b>Panos Stinis</b> — <i>Stabilizing PDE-ML systems with applications to fluid dynamics</i></span><span class="talkline"><span class="tl-time">4:00</span> <b>Nick Winovich</b> — <i>Operator Learning for Non-Destructive Testing of Mechanical Components</i></span></td>
+          <td><a class="sess" href="#s4b"><span class="code">4B</span>Reliable Prediction &amp; Uncertainty Quantification</a><span class="chairline">Chair: Di Qi</span><span class="talkline"><span class="tl-time">3:30</span> <b>Wenrui Hao</b> — <i>Toward Reliable Scientific Machine Learning: Identifiability and Neural Operator Learning</i></span><span class="talkline"><span class="tl-time">4:00</span> <b>Alexander Scheinker</b> — <i>Self-Supervised Test-Time Method for Autoregressive Generative Models to Predict their own Roll-out Errors</i></span></td>
         </tr>
         <tr>
           <td class="time">4:30 – 5:00 pm</td>
-          <td><a class="sess" href="#s5a"><span class="code">5A</span>Learning-Enhanced Numerical Methods for PDEs</a><span class="talkline"><span class="tl-time">4:30</span> <b>Li Wang</b> — <i>Learning-enhanced structure preserving methods for kinetic plasma models</i></span></td>
-          <td><a class="sess" href="#s5b"><span class="code">5B</span>Stochastic Modeling, Transport &amp; Uncertainty Quantification</a><span class="talkline"><span class="tl-time">4:30</span> <b>Gianluca Geraci</b> — <i>Multi-fidelity triangular transport formulations</i></span></td>
+          <td><a class="sess" href="#s5a"><span class="code">5A</span>Learning-Enhanced Numerical Methods for PDEs</a><span class="chairline">Chair: Zhiliang Xu</span><span class="talkline"><span class="tl-time">4:30</span> <b>Li Wang</b> — <i>Learning-enhanced structure preserving methods for kinetic plasma models</i></span></td>
+          <td><a class="sess" href="#s5b"><span class="code">5B</span>Stochastic Modeling, Transport &amp; Uncertainty Quantification</a><span class="chairline">Chair: Di Qi</span><span class="talkline"><span class="tl-time">4:30</span> <b>Gianluca Geraci</b> — <i>Multi-fidelity triangular transport formulations</i></span></td>
         </tr>
-        <tr class="special"><td class="time">5:00 – 6:00 pm</td><td colspan="2"><a class="sess" href="#lt1">Lightning Talks I</a> — 6 talks × 10 min <span class="who">📍 105 Jordan</span></td></tr>
+        <tr class="special"><td class="time">5:00 – 6:00 pm</td><td colspan="2"><a class="sess" href="#lt1">Lightning Talks I</a> — 6 talks × 10 min <span class="who">📍 105 Jordan</span><span class="chairline">Chair: Zecheng Zhang</span></td></tr>
         <tr class="special"><td class="time">6:00 – 7:30 pm</td><td colspan="2"><span class="sess">Poster Session and Speakers Banquet</span> <span class="who">📍 Jordan Hall</span></td></tr>
       </tbody>
     </table>
@@ -191,22 +199,22 @@
       <tbody>
         <tr>
           <td class="time">9:30 – 10:30 am</td>
-          <td><a class="sess" href="#s5a-cont"><span class="code">5A</span>Learning-Enhanced Numerical Methods for PDEs (continued)</a><span class="talkline"><span class="tl-time">9:30</span> <b>Matthew Zahr</b> — <i>Optimization-Based Simulation of High-Speed Flows</i></span><span class="talkline"><span class="tl-time">10:00</span> <b>Yingjie Liu</b> — <i>Neural Networks with Local Converging Inputs (NNLCI) for Predicting Smooth and Non-smooth PDE Solutions with Minimal Training Data, Strong Generalization, and Drastically Reduced Complexity</i></span></td>
-          <td><a class="sess" href="#s5b-cont"><span class="code">5B</span>Stochastic Modeling, Transport &amp; Uncertainty Quantification (continued)</a><span class="talkline"><span class="tl-time">9:30</span> <b>Erhan Bayraktar</b> — <i>Analytical Approach to Continuous-Time Causal Optimal Transport</i></span><span class="talkline"><span class="tl-time">10:00</span> <b>Xiaofan Li</b> — <i>Structure-Aware Variational Learning of a Class of Generalized Diffusions</i></span></td>
+          <td><a class="sess" href="#s5a-cont"><span class="code">5A</span>Learning-Enhanced Numerical Methods for PDEs (continued)</a><span class="chairline">Chair: Zhiliang Xu</span><span class="talkline"><span class="tl-time">9:30</span> <b>Matthew Zahr</b> — <i>Optimization-Based Simulation of High-Speed Flows</i></span><span class="talkline"><span class="tl-time">10:00</span> <b>Yingjie Liu</b> — <i>Neural Networks with Local Converging Inputs (NNLCI) for Predicting Smooth and Non-smooth PDE Solutions with Minimal Training Data, Strong Generalization, and Drastically Reduced Complexity</i></span></td>
+          <td><a class="sess" href="#s5b-cont"><span class="code">5B</span>Stochastic Modeling, Transport &amp; Uncertainty Quantification (continued)</a><span class="chairline">Chair: Di Qi</span><span class="talkline"><span class="tl-time">9:30</span> <b>Erhan Bayraktar</b> — <i>Analytical Approach to Continuous-Time Causal Optimal Transport</i></span><span class="talkline"><span class="tl-time">10:00</span> <b>Xiaofan Li</b> — <i>Structure-Aware Variational Learning of a Class of Generalized Diffusions</i></span></td>
         </tr>
         <tr class="break"><td class="time">10:30 – 11:00 am</td><td colspan="2">Coffee Break</td></tr>
         <tr>
           <td class="time">11:00 am – 12:00 pm</td>
-          <td><a class="sess" href="#s6a"><span class="code">6A</span>Operator Learning: Architectures &amp; In-Context Methods</a><span class="talkline"><span class="tl-time">11:00</span> <b>Yue Yu</b> — <i>Smoother or rougher: how to generate data to learn nonlocal operators?</i></span><span class="talkline"><span class="tl-time">11:30</span> <b>Guang Lin</b> — <i>LegONet: Plug-and-Play Structure-Preserving Neural Operator Blocks for Compositional PDE Learning</i></span></td>
-          <td><a class="sess" href="#s6b"><span class="code">6B</span>Surrogate Models, Reduced-Order Methods &amp; Efficient Algorithms</a><span class="talkline"><span class="tl-time">11:00</span> <b>Ibrahim Ekren</b> — <i>Consensus-based algorithms for min–max problems: uniform-in-time propagation of chaos</i></span><span class="talkline"><span class="tl-time">11:30</span> <b>Patrick Brewick</b> — <i>Toward Data-Efficient Scientific Machine Learning for Nonlinear Dynamics: Active Solution Operators and Bi-Fidelity Generative Models</i></span></td>
+          <td><a class="sess" href="#s6a"><span class="code">6A</span>Operator Learning: Architectures &amp; In-Context Methods</a><span class="chairline">Chair: Zecheng Zhang</span><span class="talkline"><span class="tl-time">11:00</span> <b>Yue Yu</b> — <i>Smoother or rougher: how to generate data to learn nonlocal operators?</i></span><span class="talkline"><span class="tl-time">11:30</span> <b>Guang Lin</b> — <i>LegONet: Plug-and-Play Structure-Preserving Neural Operator Blocks for Compositional PDE Learning</i></span></td>
+          <td><a class="sess" href="#s6b"><span class="code">6B</span>Surrogate Models, Reduced-Order Methods &amp; Efficient Algorithms</a><span class="chairline">Chair: Daniele Schiavazzi</span><span class="talkline"><span class="tl-time">11:00</span> <b>Ibrahim Ekren</b> — <i>Consensus-based algorithms for min–max problems: uniform-in-time propagation of chaos</i></span><span class="talkline"><span class="tl-time">11:30</span> <b>Patrick Brewick</b> — <i>Toward Data-Efficient Scientific Machine Learning for Nonlinear Dynamics: Active Solution Operators and Bi-Fidelity Generative Models</i></span></td>
         </tr>
         <tr class="break"><td class="time">12:00 – 1:00 pm</td><td colspan="2">Lunch Break</td></tr>
         <tr>
           <td class="time">1:00 – 2:00 pm</td>
-          <td><a class="sess" href="#s6a-cont"><span class="code">6A</span>Operator Learning: Architectures &amp; In-Context Methods (continued)</a><span class="talkline"><span class="tl-time">1:00</span> <b>Jonathan Siegel</b> — <i>Operator-to-operator learning using DeepOSets and FNOSets</i></span><span class="talkline"><span class="tl-time">1:30</span> <b>Rongjie Lai</b> — <i>Self-supervised In-context Operator Learning on Probability Measure Space: Theory and Applications</i></span></td>
-          <td><a class="sess" href="#s6b-cont"><span class="code">6B</span>Surrogate Models, Reduced-Order Methods &amp; Efficient Algorithms (continued)</a><span class="talkline"><span class="tl-time">1:00</span> <b>Alexandros Taflanidis</b> — <i>Leveraging scientific machine learning techniques to support planning and emergency response management for storm surge risk</i></span><span class="talkline"><span class="tl-time">1:30</span> <b>Qi Di</b> — <i>Reduced-order models and data assimilation for prediction and uncertainty quantification of multiscale turbulent systems</i></span></td>
+          <td><a class="sess" href="#s6a-cont"><span class="code">6A</span>Operator Learning: Architectures &amp; In-Context Methods (continued)</a><span class="chairline">Chair: Zecheng Zhang</span><span class="talkline"><span class="tl-time">1:00</span> <b>Jonathan Siegel</b> — <i>Operator-to-operator learning using DeepOSets and FNOSets</i></span><span class="talkline"><span class="tl-time">1:30</span> <b>Rongjie Lai</b> — <i>Self-supervised In-context Operator Learning on Probability Measure Space: Theory and Applications</i></span></td>
+          <td><a class="sess" href="#s6b-cont"><span class="code">6B</span>Surrogate Models, Reduced-Order Methods &amp; Efficient Algorithms (continued)</a><span class="chairline">Chair: Daniele Schiavazzi</span><span class="talkline"><span class="tl-time">1:00</span> <b>Alexandros Taflanidis</b> — <i>Leveraging scientific machine learning techniques to support planning and emergency response management for storm surge risk</i></span><span class="talkline"><span class="tl-time">1:30</span> <b>Qi Di</b> — <i>Reduced-order models and data assimilation for prediction and uncertainty quantification of multiscale turbulent systems</i></span></td>
         </tr>
-        <tr class="special"><td class="time">2:00 – 3:00 pm</td><td colspan="2"><a class="sess" href="#lt2">Lightning Talks II</a> — 6 talks × 10 min <span class="who">📍 105 Jordan</span></td></tr>
+        <tr class="special"><td class="time">2:00 – 3:00 pm</td><td colspan="2"><a class="sess" href="#lt2">Lightning Talks II</a> — 6 talks × 10 min <span class="who">📍 105 Jordan</span><span class="chairline">Chair: Daniele Schiavazzi</span></td></tr>
         <tr class="break"><td class="time">3:00 pm</td><td colspan="2">Departure</td></tr>
       </tbody>
     </table>
@@ -224,7 +232,7 @@
 
     <div class="parallel">
       <div class="session-block" id="s1a">
-        <div class="session-title"><span class="stime">9:05 – 10:35 am · Session A</span>1A: Data-Driven Modeling &amp; Digital Twins<span class="loc">📍 105 Jordan</span></div>
+        <div class="session-title"><span class="stime">9:05 – 10:35 am · Session A</span>1A: Data-Driven Modeling &amp; Digital Twins<span class="loc">📍 105 Jordan</span><span class="chair">Chair: Guang Lin</span></div>
 
         <div class="talk">
           <div class="ttime">9:05 – 9:35 am</div>
@@ -254,7 +262,7 @@
         </div>
       </div>
       <div class="session-block" id="s1b">
-        <div class="session-title"><span class="stime">9:05 – 10:35 am · Session B</span>1B: Sparse Data, Streaming &amp; Probabilistic Learning<span class="loc">📍 101 Jordan</span></div>
+        <div class="session-title"><span class="stime">9:05 – 10:35 am · Session B</span>1B: Sparse Data, Streaming &amp; Probabilistic Learning<span class="loc">📍 101 Jordan</span><span class="chair">Chair: Zhiliang Xu</span></div>
 
         <div class="talk">
           <div class="ttime">9:05 – 9:35 am</div>
@@ -289,7 +297,7 @@
 
     <div class="parallel">
       <div class="session-block" id="s2a">
-        <div class="session-title"><span class="stime">11:00 am – 12:00 pm · Session A</span>2A: AI Agents for Scientific Discovery<span class="loc">📍 105 Jordan</span></div>
+        <div class="session-title"><span class="stime">11:00 am – 12:00 pm · Session A</span>2A: AI Agents for Scientific Discovery<span class="loc">📍 105 Jordan</span><span class="chair">Chair: Daniele Schiavazzi</span></div>
 
         <div class="talk">
           <div class="ttime">11:00 – 11:30 am</div>
@@ -310,7 +318,7 @@
         </div>
       </div>
       <div class="session-block" id="s2b">
-        <div class="session-title"><span class="stime">11:00 am – 12:00 pm · Session B</span>2B: Geometry, Sampling &amp; High-Dimensional Inference<span class="loc">📍 101 Jordan</span></div>
+        <div class="session-title"><span class="stime">11:00 am – 12:00 pm · Session B</span>2B: Geometry, Sampling &amp; High-Dimensional Inference<span class="loc">📍 101 Jordan</span><span class="chair">Chair: Di Qi</span></div>
 
         <div class="talk">
           <div class="ttime">11:00 – 11:30 am</div>
@@ -336,7 +344,7 @@
 
     <div class="parallel">
       <div class="session-block" id="s3a">
-        <div class="session-title"><span class="stime">1:00 – 2:30 pm · Session A</span>3A: Agentic AI &amp; Foundation Models for Science &amp; Engineering<span class="loc">📍 105 Jordan</span></div>
+        <div class="session-title"><span class="stime">1:00 – 2:30 pm · Session A</span>3A: Agentic AI &amp; Foundation Models for Science &amp; Engineering<span class="loc">📍 105 Jordan</span><span class="chair">Chair: Daniele Schiavazzi</span></div>
 
         <div class="talk">
           <div class="ttime">1:00 – 1:30 pm</div>
@@ -366,7 +374,7 @@
         </div>
       </div>
       <div class="session-block" id="s3b">
-        <div class="session-title"><span class="stime">1:00 – 2:30 pm · Session B</span>3B: Mathematical Foundations of Machine Learning<span class="loc">📍 101 Jordan</span></div>
+        <div class="session-title"><span class="stime">1:00 – 2:30 pm · Session B</span>3B: Mathematical Foundations of Machine Learning<span class="loc">📍 101 Jordan</span><span class="chair">Chair: Zecheng Zhang</span></div>
 
         <div class="talk">
           <div class="ttime">1:00 – 1:30 pm</div>
@@ -401,7 +409,7 @@
 
     <div class="parallel">
       <div class="session-block" id="s3a-cont">
-        <div class="session-title"><span class="stime">3:00 – 3:30 pm · Session A</span>3A: Agentic AI &amp; Foundation Models for Science &amp; Engineering (continued)<span class="loc">📍 105 Jordan</span></div>
+        <div class="session-title"><span class="stime">3:00 – 3:30 pm · Session A</span>3A: Agentic AI &amp; Foundation Models for Science &amp; Engineering (continued)<span class="loc">📍 105 Jordan</span><span class="chair">Chair: Daniele Schiavazzi</span></div>
 
         <div class="talk">
           <div class="ttime">3:00 – 3:30 pm</div>
@@ -413,7 +421,7 @@
         </div>
       </div>
       <div class="session-block" id="s3b-cont">
-        <div class="session-title"><span class="stime">3:00 – 3:30 pm · Session B</span>3B: Mathematical Foundations of Machine Learning (continued)<span class="loc">📍 101 Jordan</span></div>
+        <div class="session-title"><span class="stime">3:00 – 3:30 pm · Session B</span>3B: Mathematical Foundations of Machine Learning (continued)<span class="loc">📍 101 Jordan</span><span class="chair">Chair: Zecheng Zhang</span></div>
 
         <div class="talk">
           <div class="ttime">3:00 – 3:30 pm</div>
@@ -428,7 +436,7 @@
 
     <div class="parallel">
       <div class="session-block" id="s4a">
-        <div class="session-title"><span class="stime">3:30 – 4:30 pm · Session A</span>4A: PDE–ML Coupling &amp; Operator Learning for Engineering<span class="loc">📍 105 Jordan</span></div>
+        <div class="session-title"><span class="stime">3:30 – 4:30 pm · Session A</span>4A: PDE–ML Coupling &amp; Operator Learning for Engineering<span class="loc">📍 105 Jordan</span><span class="chair">Chair: Guang Lin</span></div>
 
         <div class="talk">
           <div class="ttime">3:30 – 4:00 pm</div>
@@ -449,7 +457,7 @@
         </div>
       </div>
       <div class="session-block" id="s4b">
-        <div class="session-title"><span class="stime">3:30 – 4:30 pm · Session B</span>4B: Reliable Prediction &amp; Uncertainty Quantification<span class="loc">📍 101 Jordan</span></div>
+        <div class="session-title"><span class="stime">3:30 – 4:30 pm · Session B</span>4B: Reliable Prediction &amp; Uncertainty Quantification<span class="loc">📍 101 Jordan</span><span class="chair">Chair: Di Qi</span></div>
 
         <div class="talk">
           <div class="ttime">3:30 – 4:00 pm</div>
@@ -473,7 +481,7 @@
 
     <div class="parallel">
       <div class="session-block" id="s5a">
-        <div class="session-title"><span class="stime">4:30 – 5:00 pm · Session A</span>5A: Learning-Enhanced Numerical Methods for PDEs<span class="loc">📍 105 Jordan</span></div>
+        <div class="session-title"><span class="stime">4:30 – 5:00 pm · Session A</span>5A: Learning-Enhanced Numerical Methods for PDEs<span class="loc">📍 105 Jordan</span><span class="chair">Chair: Zhiliang Xu</span></div>
 
         <div class="talk">
           <div class="ttime">4:30 – 5:00 pm</div>
@@ -485,7 +493,7 @@
         </div>
       </div>
       <div class="session-block" id="s5b">
-        <div class="session-title"><span class="stime">4:30 – 5:00 pm · Session B</span>5B: Stochastic Modeling, Transport &amp; Uncertainty Quantification<span class="loc">📍 101 Jordan</span></div>
+        <div class="session-title"><span class="stime">4:30 – 5:00 pm · Session B</span>5B: Stochastic Modeling, Transport &amp; Uncertainty Quantification<span class="loc">📍 101 Jordan</span><span class="chair">Chair: Di Qi</span></div>
 
         <div class="talk">
           <div class="ttime">4:30 – 5:00 pm</div>
@@ -499,7 +507,7 @@
     </div>
 
       <div class="session-block" id="lt1">
-        <div class="session-title lightning"><span class="stime">5:00 – 6:00 pm · 6 talks × 10 min</span>Lightning Talks I<span class="loc">📍 105 Jordan</span></div>
+        <div class="session-title lightning"><span class="stime">5:00 – 6:00 pm · 6 talks × 10 min</span>Lightning Talks I<span class="loc">📍 105 Jordan</span><span class="chair">Chair: Zecheng Zhang</span></div>
         <ul class="lt-list">
           <li><span class="lt-time">5:00 – 5:10 pm</span> · <span class="lt-name">Tijana Milenkovic</span> <span class="lt-affil">· University of Notre Dame</span><br /><span class="lt-title">Learning from graph representations of protein 3D structures</span></li>
           <li><span class="lt-time">5:10 – 5:20 pm</span> · <span class="lt-name">Owen Davis</span> <span class="lt-affil">· Sandia National Laboratories</span><br /><span class="lt-title">Multi-fidelity Triangular Transport: Hierarchical and Non-hierarchical Formulations</span></li>
@@ -516,7 +524,7 @@
 
     <div class="parallel">
       <div class="session-block" id="s5a-cont">
-        <div class="session-title"><span class="stime">9:30 – 10:30 am · Session A</span>5A: Learning-Enhanced Numerical Methods for PDEs (continued)<span class="loc">📍 105 Jordan</span></div>
+        <div class="session-title"><span class="stime">9:30 – 10:30 am · Session A</span>5A: Learning-Enhanced Numerical Methods for PDEs (continued)<span class="loc">📍 105 Jordan</span><span class="chair">Chair: Zhiliang Xu</span></div>
 
         <div class="talk">
           <div class="ttime">9:30 – 10:00 am</div>
@@ -537,7 +545,7 @@
         </div>
       </div>
       <div class="session-block" id="s5b-cont">
-        <div class="session-title"><span class="stime">9:30 – 10:30 am · Session B</span>5B: Stochastic Modeling, Transport &amp; Uncertainty Quantification (continued)<span class="loc">📍 101 Jordan</span></div>
+        <div class="session-title"><span class="stime">9:30 – 10:30 am · Session B</span>5B: Stochastic Modeling, Transport &amp; Uncertainty Quantification (continued)<span class="loc">📍 101 Jordan</span><span class="chair">Chair: Di Qi</span></div>
 
         <div class="talk">
           <div class="ttime">9:30 – 10:00 am</div>
@@ -563,7 +571,7 @@
 
     <div class="parallel">
       <div class="session-block" id="s6a">
-        <div class="session-title"><span class="stime">11:00 am – 12:00 pm · Session A</span>6A: Operator Learning: Architectures &amp; In-Context Methods<span class="loc">📍 105 Jordan</span></div>
+        <div class="session-title"><span class="stime">11:00 am – 12:00 pm · Session A</span>6A: Operator Learning: Architectures &amp; In-Context Methods<span class="loc">📍 105 Jordan</span><span class="chair">Chair: Zecheng Zhang</span></div>
 
         <div class="talk">
           <div class="ttime">11:00 – 11:30 am</div>
@@ -584,7 +592,7 @@
         </div>
       </div>
       <div class="session-block" id="s6b">
-        <div class="session-title"><span class="stime">11:00 am – 12:00 pm · Session B</span>6B: Surrogate Models, Reduced-Order Methods &amp; Efficient Algorithms<span class="loc">📍 101 Jordan</span></div>
+        <div class="session-title"><span class="stime">11:00 am – 12:00 pm · Session B</span>6B: Surrogate Models, Reduced-Order Methods &amp; Efficient Algorithms<span class="loc">📍 101 Jordan</span><span class="chair">Chair: Daniele Schiavazzi</span></div>
 
         <div class="talk">
           <div class="ttime">11:00 – 11:30 am</div>
@@ -610,7 +618,7 @@
 
     <div class="parallel">
       <div class="session-block" id="s6a-cont">
-        <div class="session-title"><span class="stime">1:00 – 2:00 pm · Session A</span>6A: Operator Learning: Architectures &amp; In-Context Methods (continued)<span class="loc">📍 105 Jordan</span></div>
+        <div class="session-title"><span class="stime">1:00 – 2:00 pm · Session A</span>6A: Operator Learning: Architectures &amp; In-Context Methods (continued)<span class="loc">📍 105 Jordan</span><span class="chair">Chair: Zecheng Zhang</span></div>
 
         <div class="talk">
           <div class="ttime">1:00 – 1:30 pm</div>
@@ -631,7 +639,7 @@
         </div>
       </div>
       <div class="session-block" id="s6b-cont">
-        <div class="session-title"><span class="stime">1:00 – 2:00 pm · Session B</span>6B: Surrogate Models, Reduced-Order Methods &amp; Efficient Algorithms (continued)<span class="loc">📍 101 Jordan</span></div>
+        <div class="session-title"><span class="stime">1:00 – 2:00 pm · Session B</span>6B: Surrogate Models, Reduced-Order Methods &amp; Efficient Algorithms (continued)<span class="loc">📍 101 Jordan</span><span class="chair">Chair: Daniele Schiavazzi</span></div>
 
         <div class="talk">
           <div class="ttime">1:00 – 1:30 pm</div>
@@ -654,7 +662,7 @@
     </div>
 
       <div class="session-block" id="lt2">
-        <div class="session-title lightning"><span class="stime">2:00 – 3:00 pm · 6 talks × 10 min</span>Lightning Talks II<span class="loc">📍 105 Jordan</span></div>
+        <div class="session-title lightning"><span class="stime">2:00 – 3:00 pm · 6 talks × 10 min</span>Lightning Talks II<span class="loc">📍 105 Jordan</span><span class="chair">Chair: Daniele Schiavazzi</span></div>
         <ul class="lt-list">
           <li><span class="lt-time">2:00 – 2:10 pm</span> · <span class="lt-name">Carlos Sing Long</span> <span class="lt-affil">· Pontifical Catholic University of Chile</span><br /><span class="lt-title">Learning and collapse in affine inVAErt networks</span></li>
           <li><span class="lt-time">2:10 – 2:20 pm</span> · <span class="lt-name">Diego Gomez-Zara</span> <span class="lt-affil">· University of Notre Dame</span><br /><span class="lt-title">Collaborating with AI Beyond the Screen: Human-AI Interaction in Mixed Reality</span></li>
@@ -667,6 +675,50 @@
 
     <div class="break-card">3:00 pm · Departure</div>
 
+  </section>
+
+  <section id="posters">
+    <h2>Poster Presentations</h2>
+    <p>The poster session takes place on <strong>Saturday, September 26, 6:00 – 7:30 pm in Jordan Hall</strong>,
+    together with the speakers' banquet. 35 posters will be presented, listed below in alphabetical
+    order by surname.</p>
+    <ol class="poster-list">
+        <li><span class="p-num">1.</span><span class="p-name">Damian Agi</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Conserving atoms by construction: data-efficient machine learning surrogates for chemical reactors</span></li>
+        <li><span class="p-num">2.</span><span class="p-name">Ashiat Bakare</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Adaptive Transfer Kernel Learning for Data-Efficient Gas Adsorption Prediction in Metal-Organic Frameworks</span></li>
+        <li><span class="p-num">3.</span><span class="p-name">William Bartel</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">EulerFlow: Physics-Guided Flow Matching Toward Humanoid Loco-Manipulation</span></li>
+        <li><span class="p-num">4.</span><span class="p-name">Thomas Burton</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Product-Aware Machine Learning of Reaction Selectivity from Kinetic Subnetworks</span></li>
+        <li><span class="p-num">5.</span><span class="p-name">Zeping Chen</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">PROPEL: PiNDiff-Guided Recipe Optimization through Progressive Experimental Learning for Carbon–Carbon Composite Manufacturing</span></li>
+        <li><span class="p-num">6.</span><span class="p-name">Sreejata Dey</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Emulation and amortized inference of stiff chemical reaction systems with InVAErt networks</span></li>
+        <li><span class="p-num">7.</span><span class="p-name">Sinaendhran Pujali Elilarasan</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Learning reduced representations of detonations with graph neural networks</span></li>
+        <li><span class="p-num">8.</span><span class="p-name">Mariana Fernandez-Espinosa</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">SkillXray: Detecting Privacy Harms in Agent Skills</span></li>
+        <li><span class="p-num">9.</span><span class="p-name">Zhongtian Gu</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Bayesian optimization-driven exploration of process–structure–property relationship for polyethylene composite films</span></li>
+        <li><span class="p-num">10.</span><span class="p-name">Abby Kapocius</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Field Neural Networks</span></li>
+        <li><span class="p-num">11.</span><span class="p-name">Johannes Krotz</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Particle Transport in the Express Lane: Bypassing Complex Histories with Generative Monte Carlo</span></li>
+        <li><span class="p-num">12.</span><span class="p-name">Gaspar Larrain</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">The Limits of AI Originality: How Text-to-Image Generation Constraints Divergent Thinking</span></li>
+        <li><span class="p-num">13.</span><span class="p-name">Xinyuan Li</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">In-Context Learning for Multi-Fidelity Multiscale Model Closure and Cross-Operator OOD Generalization</span></li>
+        <li><span class="p-num">14.</span><span class="p-name">Yuhan Liu</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Active learning-enabled multi-objective design of thermally conductive and mechanically compliant polymers</span></li>
+        <li><span class="p-num">15.</span><span class="p-name">Luis Loo</span> <span class="p-affil">· Texas A&amp;M University</span><span class="p-title">An Agentic AI Scientific Community for Automated Neural Operator Discovery</span></li>
+        <li><span class="p-num">16.</span><span class="p-name">Ben-Chi Ma</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Machine-learning-assisted multiscale phonon transport in AlGaN/GaN HEMTs</span></li>
+        <li><span class="p-num">17.</span><span class="p-name">Harihara Maharna</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">A Variational Neural Lagrangian Method for Generalized Diffusion via Incremental Displacement Maps</span></li>
+        <li><span class="p-num">18.</span><span class="p-name">Luca Menicali</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">DIPA: Diffusion Model Informed by Physics with Attention for Long-Range Probabilistic Forecasts</span></li>
+        <li><span class="p-num">19.</span><span class="p-name">Miriam Mike</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">AI-Enhanced Predicative Algorithm for Detecting Substandard Medications</span></li>
+        <li><span class="p-num">20.</span><span class="p-name">Bryan Piguave</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Integrating Task Descriptions and Labeled Evidence for Few-Shot Molecular Prediction</span></li>
+        <li><span class="p-num">21.</span><span class="p-name">Krishna Pothugunta</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Aggregate Similarity Obscures Differences Between Human and LLM Agreement Structures</span></li>
+        <li><span class="p-num">22.</span><span class="p-name">Kunlun Qi</span> <span class="p-affil">· Michigan State University</span><span class="p-title">Fast Fourier spectral method with scientific machine learning application for kinetic equations: from particle to wave</span></li>
+        <li><span class="p-num">23.</span><span class="p-name">Matthew Senese</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Dynamics and Memorization in Noise-Blind Diffusion Models</span></li>
+        <li><span class="p-num">24.</span><span class="p-name">Shravan Kumar Sharma</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Quantum cavity control of electron transfer: non-monotonic collective effects and cavity-modified light-matter interactions</span></li>
+        <li><span class="p-num">25.</span><span class="p-name">Zhaiming Shen</span> <span class="p-affil">· Utah State University</span><span class="p-title">Understanding In-Context Learning with Kernel Methods</span></li>
+        <li><span class="p-num">26.</span><span class="p-name">Jichuan Tang</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Using Conditional Diffusion Models for Data-Driven Ground Motion Identification of Structural Dynamic Systems Under Uncertainty</span></li>
+        <li><span class="p-num">27.</span><span class="p-name">Amrit Tarur</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Generating simultaneous OH-PLIF/PIV images of turbulent flames with a conditional diffusion model</span></li>
+        <li><span class="p-num">28.</span><span class="p-name">Akshay Thakur</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Feature tracking with Physics Informed Neural Networks</span></li>
+        <li><span class="p-num">29.</span><span class="p-name">Isabel Thompson</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Learning Slow Dynamics Without Discretization: Density-Ratio Spectral Decomposition of Weighted-Ensemble Trajectories</span></li>
+        <li><span class="p-num">30.</span><span class="p-name">Matt Toole</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Machine Learning Framework to Deconvolute Non-linear Scattering Patterns In Scanning Tunneling Microscopy</span></li>
+        <li><span class="p-num">31.</span><span class="p-name">Cristian Villatoro</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Velocity-Conditioned Multi-Fidelity Flow Matching, with an NTK-Optimal Time Sampler</span></li>
+        <li><span class="p-num">32.</span><span class="p-name">Chelsea Wang</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Swin Transformer-Based Deep Learning for ECG Signal Analysis</span></li>
+        <li><span class="p-num">33.</span><span class="p-name">Yueqi Wang</span> <span class="p-affil">· Purdue University</span><span class="p-title">LegONet: Plug-and-Play Structure-Preserving Neural Operator Blocks for Compositional PDE Learning</span></li>
+        <li><span class="p-num">34.</span><span class="p-name">Aydin Wells</span> <span class="p-affil">· University of Notre Dame</span><span class="p-title">Traditional machine learning vs. deep learning from dynamic graph representations of proteins' 3D folds in the task of protein structure classification</span></li>
+        <li><span class="p-num">35.</span><span class="p-name">Ruda Zhang</span> <span class="p-affil">· University of Houston</span><span class="p-title">Characterizing Errors in Fine-tuned Scientific Foundation Models via Stochastic Attention</span></li>
+    </ol>
   </section>
 
 </div>
